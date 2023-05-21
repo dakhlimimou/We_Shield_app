@@ -1,0 +1,140 @@
+<div class="showblogs">
+  <div class="header">
+    <div class="my-carossel">
+      <div
+        class="element-container"
+        [style.transform]="'translateX(-' + 100 * carossel_current_item + '%)'"
+      >
+        <div
+          *ngFor="let item of carossel_items; let i = index"
+          class="my-element"
+          [style.background-image]="'url(' + item.image + ')'"
+        >
+          <div class="container-title">
+            <span class="category">Quotes</span>
+            <h3>{{ item.title }}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="my-carossel-navigation">
+        <div class="puces">
+          <span
+            *ngFor="let puce of carossel_items; let i = index"
+            [ngClass]="{ active: i === carossel_current_item }"
+            class="puce"
+            (click)="gotoitem(i)"
+          ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <h2 class="title">Popular topics</h2>
+    <div class="popular-topics">
+      <h4>All</h4>
+      <h4>School</h4>
+      <h4>Community</h4>
+      <h4>Self care</h4>
+      <h4>Experiences</h4>
+      <h4>Breakthrough</h4>
+    </div>
+
+    <div *ngIf="blogs.length === 0" class="skeleton_blogs">
+      <div class="blog" *ngFor="let skeleton_blog of skeleton_blogs">
+        <app-blog-skeleton></app-blog-skeleton>
+      </div>
+    </div>
+
+    <div *ngIf="blogs.length !== 0" class="blogs">
+      <div *ngFor="let blog of blogs" class="blog">
+        <i
+          *ngIf="user.role == 'Administrator' || blog.user._id == user._id"
+          class="fa fa-trash"
+          style="margin-right: 80%; color: red; cursor: pointer"
+          (click)="delete(blog._id)"
+          [routerLink]="['/blogs']"
+        ></i>
+        <div
+          class="blog-img"
+          [style.background-image]="'url(' + blog.image + ')'"
+          alt=""
+          [routerLink]="['/blog', blog._id]"
+        >
+          <span class="category">{{ blog.tags[0] }}</span>
+        </div>
+        <div class="time-and-author">
+          <span> {{ parseDate(blog.createdAt) }} </span>
+          <span>{{ blog.user.firstName + " " + blog.user.lastName }}</span>
+        </div>
+        <h3 class="blog-title">
+          {{ blog.title }}
+        </h3>
+        <p>
+          {{ blog.description
+          }}<span class="read-more" [routerLink]="['/blog', blog._id]"
+            >....Read more</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class="suggestions">
+      <div
+        class="suggesed_blog"
+        [style.background-image]="
+          'linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../../../assets/images/blog/i1.png)'
+        "
+      >
+        <span class="category">New</span>
+        <div class="time">
+          <span>17.10.2022</span>
+        </div>
+        <h3 class="blog-title">
+          Realizing Your Self-Worth and Believing in Your Path
+        </h3>
+        <p>
+          It had been several months since I graduated from high school and I
+          had no idea what I was going to do with my life or what so ever. what
+          else I asked.<span class="read-more">....Read more</span>
+        </p>
+      </div>
+      <div
+        class="suggesed_blog"
+        [style.background-image]="
+          'linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../../../assets/images/blog/i1.png)'
+        "
+      >
+        <span class="category">New</span>
+        <div class="time">
+          <span>17.10.2022</span>
+        </div>
+        <h3 class="blog-title">
+          Realizing Your Self-Worth and Believing in Your Path
+        </h3>
+        <p>
+          It had been several months since I graduated from high school and I
+          had no idea what I was going to do with my life or what so ever. what
+          else I asked.<span class="read-more">....Read more</span>
+        </p>
+      </div>
+      <div
+        class="suggesed_blog"
+        [style.background-image]="
+          'linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(../../../assets/images/blog/i1.png)'
+        "
+      >
+        <span class="category">New</span>
+        <div class="time">
+          <span>17.10.2022</span>
+        </div>
+        <h3 class="blog-title">
+          Realizing Your Self-Worth and Believing in Your Path
+        </h3>
+        <p>
+          It had been several months since I graduated from high school and I
+          had no idea what I was going to do with my life or what so ever. what
+          else I asked.<span class="read-more">....Read more</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

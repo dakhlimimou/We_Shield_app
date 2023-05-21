@@ -1,0 +1,325 @@
+@use "../../../assets/scss/media-queries.scss" as *;
+
+.register {
+  min-width: 100%;
+  min-height: 100vh;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--main);
+  font-family: "OpenSans";
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include lt-md {
+    height: auto;
+  }
+}
+
+.preview,
+.form {
+  height: 100%;
+}
+
+.preview {
+  width: 35%;
+  padding: 45px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @include lt-xl {
+    padding: 20px;
+    width: 30%;
+  }
+  @include md {
+    padding: 20px;
+    width: 35%;
+  }
+  @include lt-md {
+    display: none;
+  }
+
+  .logo {
+    width: 180px;
+  }
+
+  .container-girl {
+    height: 75%;
+    width: 100%;
+    .title {
+      margin: 0px;
+      color: var(--white);
+      font-size: 50px;
+      font-weight: 700;
+
+      @include lt-xl {
+        font-size: 40px;
+      }
+      @include md {
+        font-size: 35px;
+      }
+    }
+    .girl_img {
+      height: 75%;
+      display: block;
+      margin: auto;
+      @include lt-xl {
+        height: auto;
+        width: 80%;
+      }
+      @include md {
+        height: auto;
+        width: 90%;
+      }
+    }
+  }
+}
+
+.mul_lang {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+
+  @include lt-xl {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.form {
+  width: 65%;
+  padding: 45px 45px 45px 70px;
+
+  background-color: var(--white);
+  border-radius: 120px 0px 0px 120px;
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @include lt-xl {
+    padding: 20px 20px 20px 50px;
+    width: 70%;
+    border-radius: 80px 0px 0px 80px;
+  }
+  @include md {
+    width: 65%;
+  }
+  @include lt-md {
+    width: 100%;
+    border-radius: 0px;
+    padding: 20px;
+  }
+}
+
+.form .head {
+  h1 {
+    font-weight: 600;
+    margin: 0px;
+    @include lt-xl {
+      font-size: 30px;
+    }
+  }
+  p {
+    font-weight: 600;
+    color: var(--grey2);
+    @include lt-xl {
+      font-size: 14px;
+    }
+  }
+}
+
+.form .footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  img {
+    height: 50px;
+    margin: 0px 5px;
+    cursor: pointer;
+    @include lt-xl {
+      height: 40px;
+    }
+    @include xs {
+      height: auto;
+      width: 30%;
+    }
+  }
+  @include xs {
+    justify-content: center;
+  }
+}
+
+// -------------------------------- INPUT/FORM STYLES --------------------------------
+
+.form .body {
+  width: 80%;
+  margin: auto;
+
+  @include lt-xl {
+    transform: scale(0.9);
+  }
+
+  @include lt-lg {
+    width: 100%;
+  }
+
+  .logo {
+    display: none;
+    margin: auto;
+    width: 180px;
+    margin-bottom: 50px;
+    @include lt-md {
+      display: block;
+    }
+  }
+
+  .input-group {
+    margin: 30px 0px;
+    @include lt-xl {
+      margin: 15px 0px;
+    }
+  }
+}
+
+.input-group {
+  border: solid 1px #ced4da;
+  border-radius: 0.375rem;
+  &:focus-within {
+    border: solid 1px var(--main);
+    .input-group-text {
+      color: var(--main);
+    }
+  }
+}
+
+.is-invalid {
+  border: solid 1px red;
+}
+
+.error-msg {
+  color: red;
+  line-height: 0;
+  display: block;
+  height: 15px;
+}
+
+input:focus {
+  box-shadow: none !important;
+}
+
+.form-floating input {
+  border-right: 0px;
+  box-shadow: none;
+  border: none;
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.form-floating label {
+  color: var(--grey2);
+}
+
+.input-group-text {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  color: var(--grey2);
+}
+
+.remember_forget {
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  @include lt-xl {
+    font-size: 15px;
+  }
+
+  input {
+    height: 20px;
+    width: 20px;
+    @include lt-xl {
+      height: 16px;
+      width: 16px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--main);
+  }
+}
+
+.buttons_group {
+  width: 100%;
+  margin: 20px 0px 20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  @include lt-xl {
+    margin: 15px 0px 15px 0px;
+  }
+
+  @include xs {
+    flex-direction: column;
+  }
+
+  button {
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+
+    border: solid 2px var(--main);
+    border-radius: 500px;
+    padding: 10px;
+    width: 280px;
+
+    @include lt-xl {
+      font-size: 16px;
+      padding: 10px;
+      width: 240px;
+      border: solid 2px var(--main);
+    }
+    @include xs {
+      margin: 5px 0px;
+    }
+  }
+
+  .signin {
+    background-color: var(--main);
+    color: var(--white);
+  }
+
+  .with_google {
+    background-color: transparent;
+
+    img {
+      height: 30px;
+      @include lt-xl {
+        height: 18px;
+      }
+    }
+  }
+}
+
+.have_account {
+  font-size: 20px;
+  text-align: center;
+  @include lt-xl {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,134 @@
+@use "../../../assets/scss/media-queries.scss" as *;
+
+* {
+  font-family: "OpenSans";
+  font-style: normal;
+  text-align: justify;
+  text-decoration: none;
+}
+
+/*****/
+.left-right {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  @include lt-lg {
+    flex-direction: column;
+  }
+
+  .spacing {
+    width: 17%;
+    @include lt-lg {
+      width: 100%;
+    }
+  }
+
+  .all {
+    width: 100%;
+  }
+
+  .rest {
+    width: 87%;
+    @include lt-lg {
+      width: 100%;
+    }
+  }
+}
+/*****/
+
+.txt-container {
+  display: flex;
+
+  .txt {
+    padding: 0px 20px 0px 0px;
+    * {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 25px;
+      color: var(--title);
+    }
+  }
+}
+
+/******/
+.user-img-and-name {
+  margin-top: 10px;
+
+  .user-img-and-field {
+    display: flex;
+    flex-wrap: wrap;
+
+    .user_img {
+      height: 60px;
+      width: 60px;
+      border-radius: 500px;
+      margin: 0px 25px;
+      object-fit: cover;
+      @include lt-md {
+        height: 40px;
+        width: 40px;
+        margin: 0px 10px 0px 0px;
+      }
+    }
+
+    .user-field {
+      width: 60%;
+      @include lt-lg {
+        width: 80%;
+      }
+
+      .user-name {
+        transform: translateY(10px);
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 25px;
+        color: var(--title);
+        @include lt-md {
+          font-size: 16px;
+        }
+      }
+
+      .post-comment-btn {
+        margin: 5px 5px 0px 0px;
+      }
+
+      .comment-time {
+        font-size: 14px;
+        color: #000000b0;
+        font-weight: 500;
+      }
+
+      .comment-content {
+        display: block;
+        @include lt-md {
+          display: none;
+        }
+      }
+    }
+
+    .sm-comment {
+      display: none;
+      @include lt-md {
+        display: block;
+        width: 100%;
+        padding: 5px 0px 0px 0px;
+        text-align: justify;
+      }
+    }
+  }
+}
+/******/
+
+.edit-comment-scroll-target {
+  margin-top: -200px;
+  padding: 0px 0px 200px 0px;
+}
+
+.comment-edit {
+  transform: translateY(10px);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--main);
+  cursor: pointer;
+}

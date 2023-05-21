@@ -1,0 +1,119 @@
+@use "../../../assets/scss/media-queries.scss" as *;
+
+.complete {
+  min-width: 100%;
+  min-height: 100vh;
+  width: 100%;
+  height: 100vh;
+  font-family: "OpenSans";
+
+  @include lt-md {
+    height: auto;
+  }
+}
+
+.head {
+  padding: 40px;
+  height: 15vh;
+  img {
+    width: 150px;
+    @include lt-md {
+      width: 140px;
+    }
+  }
+  @include lt-md {
+    padding: 20px;
+  }
+}
+
+.body {
+  height: 85vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    height: 100%;
+    @include lt-md {
+      display: none;
+    }
+  }
+}
+
+.done {
+  width: 40%;
+
+  @include lt-md {
+    width: 60%;
+    margin: auto;
+  }
+
+  @include xs {
+    width: 100%;
+    margin: auto;
+  }
+
+  h2 {
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+
+    @include lg {
+      font-size: 40px;
+    }
+    @include md {
+      font-size: 30px;
+    }
+    @include lt-md {
+      font-size: 25px;
+    }
+  }
+
+  p {
+    color: var(--grey1);
+    font-size: 24px;
+    text-align: center;
+    @include lg {
+      font-size: 20px;
+    }
+    @include md {
+      font-size: 16px;
+    }
+    @include lt-md {
+      font-size: 14px;
+      text-align: justify;
+      padding: 0px 20px;
+    }
+  }
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+
+  border: solid 2px var(--main);
+  border-radius: 500px;
+  padding: 10px;
+  width: 280px;
+
+  @include lt-xl {
+    font-size: 16px;
+    padding: 10px;
+    width: 240px;
+    border: solid 2px var(--main);
+  }
+  @include lt-md {
+    margin: 5px 0px;
+    font-size: 14px;
+    width: 200px;
+  }
+}
+
+.signin {
+  background-color: var(--main);
+  color: var(--white);
+  display: block;
+  margin: 40px auto;
+}

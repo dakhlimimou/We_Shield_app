@@ -1,0 +1,32 @@
+<div class="user-img-and-name left-right">
+  <div class="all user-img-and-field">
+    <img src="{{ comment.user.profilImage }}" class="user_img" />
+    <div class="user-field">
+      <p class="user-name">
+        {{ comment.user.firstName }} {{ comment.user.lastName }}
+        <span class="comment-time"
+          >- {{ commentDate(comment.createdAt) }} -
+        </span>
+        <span
+          *ngIf="GetUser()._id === comment.user._id"
+          (click)="startEditing(startEditHere, comment, form, edit)"
+          class="comment-edit"
+          >Edit |</span
+        >
+        <span
+          *ngIf="GetUser()._id === comment.user._id"
+          (click)="DeleteComment(comment)"
+          class="comment-edit"
+        >
+          Delete
+        </span>
+      </p>
+      <p class="comment-content">
+        {{ comment.content }}
+      </p>
+    </div>
+    <p class="sm-comment">
+      {{ comment.content }}
+    </p>
+  </div>
+</div>

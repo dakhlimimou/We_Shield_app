@@ -1,0 +1,265 @@
+@use "../../../assets/scss/media-queries.scss" as *;
+
+.result {
+  padding: 20px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+
+  .research {
+    color: var(--grey2);
+    width: 30%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include xs {
+      width: 100%;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      padding: 10px;
+      width: 100%;
+      background-color: transparent;
+    }
+
+    &:focus-within {
+      border-bottom: solid 1px var(--grey2);
+    }
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include xs {
+      display: none;
+    }
+
+    .fa-bell {
+      font-size: 24px;
+      color: var(--grey1);
+      cursor: pointer;
+    }
+
+    .user_img {
+      height: 50px;
+      width: 50px;
+      border-radius: 500px;
+      margin: 0px 25px;
+      object-fit: cover;
+
+      @include lt-xl {
+        height: 40px;
+        width: 40px;
+        margin: 0px 20px;
+      }
+    }
+
+    .userName {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      h4,
+      p {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      h4 {
+        font-weight: 600;
+        font-size: 24px;
+        @include lt-xl {
+          font-size: 16px;
+        }
+      }
+      span {
+        color: var(--grey2);
+        font-size: 18px;
+        @include lt-xl {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+.button_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 30px 20px -30px 0px;
+  @media print {
+    display: none;
+  }
+}
+
+.download_pdf {
+  background-color: var(--main);
+  color: var(--white);
+  padding: 7px 15px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+
+  @include lt-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+.tests {
+  @media print {
+    position: absolute;
+    z-index: 9999;
+    background-color: white;
+    width: 100vh;
+    top: 0px;
+    left: 0px;
+  }
+}
+
+.test {
+  margin: 40px 0px;
+
+  @include lt-md {
+    margin: 20px 0px;
+  }
+  @media print {
+    margin: 20px 0px;
+  }
+}
+
+.question_number {
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--main);
+
+  @include lt-md {
+    font-size: 28px;
+  }
+  @include lt-sm {
+    font-size: 20px;
+  }
+
+  @media print {
+    font-size: 24px;
+  }
+}
+
+.question {
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--grey1);
+  background: #f2f2f2;
+  padding: 20px 10px;
+  margin: 20px 0px;
+  border-bottom: solid 3px rgba(0, 0, 0, 0.801);
+  border-radius: 10px 10px 0px 0px;
+
+  @include lt-md {
+    font-size: 22px;
+    padding: 15px 7px;
+    margin: 15px 0px;
+  }
+  @include lt-sm {
+    font-size: 18px;
+    padding: 10px 7px;
+    margin: 10px 0px;
+  }
+
+  @media print {
+    font-size: 18px;
+    padding: 10px;
+    margin: 10px 0px;
+  }
+}
+
+.answer {
+  font-weight: 400;
+  font-size: 26px;
+  color: var(--title);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  @include lt-md {
+    font-size: 20px;
+    padding: 10px;
+  }
+  @include lt-sm {
+    font-size: 16px;
+    padding: 7px;
+  }
+
+  @media print {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
+.elipse {
+  display: block;
+  margin: 0px 20px;
+  background-color: var(--grey3);
+  min-height: 40px;
+  min-width: 40px;
+  border-radius: 500px;
+
+  @include lt-sm {
+    margin: 0px 10px 0px 0px;
+    min-height: 30px;
+    min-width: 30px;
+  }
+
+  @media print {
+    margin: 0px 10px;
+    min-height: 30px;
+    min-width: 30px;
+  }
+}
+
+.selected {
+  color: var(--main);
+  .elipse {
+    outline: solid 5px var(--main);
+    border: solid 8px var(--grey3);
+    background-color: var(--main);
+
+    min-height: 40px;
+    min-width: 40px;
+
+    @include lt-sm {
+      min-height: 30px;
+      min-width: 30px;
+      outline: solid 3px var(--main);
+      border: solid 4px var(--grey3);
+    }
+
+    @media print {
+      margin: 0px 10px;
+      min-height: 30px;
+      min-width: 30px;
+      height: 30px;
+      width: 30px;
+      background-color: var(--main);
+      outline: solid 0px var(--main);
+      border: solid 0px var(--grey3);
+    }
+  }
+}

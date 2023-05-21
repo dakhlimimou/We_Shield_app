@@ -1,0 +1,260 @@
+@use "../../../assets/scss/media-queries.scss" as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+
+  .research {
+    color: var(--grey2);
+    width: 30%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include xs {
+      width: 100%;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      padding: 10px;
+      width: 100%;
+      background-color: transparent;
+    }
+
+    &:focus-within {
+      border-bottom: solid 1px var(--grey2);
+    }
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include xs {
+      display: none;
+    }
+
+    .fa-bell {
+      font-size: 24px;
+      color: var(--grey1);
+      cursor: pointer;
+    }
+
+    .user_img {
+      height: 50px;
+      width: 50px;
+      border-radius: 500px;
+      margin: 0px 25px;
+      object-fit: cover;
+
+      @include lt-xl {
+        height: 40px;
+        width: 40px;
+        margin: 0px 20px;
+      }
+    }
+
+    .userName {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      h4,
+      p {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      h4 {
+        font-weight: 600;
+        font-size: 24px;
+        @include lt-xl {
+          font-size: 16px;
+        }
+      }
+      span {
+        color: var(--grey2);
+        font-size: 18px;
+        @include lt-xl {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  width: 100% !important;
+  background-color: #fbfeff;
+  height: 100%;
+  padding: 20px;
+}
+
+.text-quill-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .ql-container {
+    flex-grow: 1;
+  }
+}
+
+#btn {
+  border-radius: 60px;
+  width: 130px;
+}
+
+.description {
+  background: #ffffff;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  height: 280px;
+  margin-top: 30px;
+}
+
+.image {
+  background: #ffffff;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px 10px;
+}
+
+.author {
+  background: #ffffff;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin-top: 30px;
+  padding: 5%;
+}
+
+#quill {
+  padding: 0%;
+  border-radius: 0px 0px 20px 20px;
+}
+
+h4 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #3a76ea;
+  margin-right: 85%;
+  margin-top: -3%;
+}
+
+.label {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #716a6a;
+  margin-left: 15%;
+  margin-bottom: 14%;
+}
+
+#inputfile {
+  border: dashed;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+label {
+  font-family: "OpenSans";
+  color: #716a6a;
+}
+
+.auteur {
+  width: 100%;
+  background-color: #f0f9ff;
+  border-radius: 10px;
+  height: 45px;
+  margin-bottom: 25px;
+  border: solid #f0f9ff;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-left: 45%;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3.5px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.is-invalid {
+  border: solid 1px red;
+}
+
+.first-inputs {
+  @include lt-sm {
+    margin: 10px 0px;
+  }
+}
+
+.submit-button {
+  @include lt-sm {
+    margin: 10px auto;
+    display: block;
+  }
+}

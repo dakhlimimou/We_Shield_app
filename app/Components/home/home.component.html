@@ -1,0 +1,369 @@
+<!-- ############################### SECTIONS 1 ################################## -->
+<div class="scroll-to-this" id="home-section"></div>
+<section class="section1">
+  <div class="introduction">
+    <h1>
+      Find your
+      <span
+        class="typewrite"
+        typingAnimation
+        [typeSpeed]="100"
+        [startDelay]="1000"
+        (complete)="(true)"
+        [hideCursorOnComplete]="false"
+        *ngFor="let word of TypeWriteWords"
+      >
+        {{ word }}
+      </span>
+    </h1>
+    <h1>with our safe space</h1>
+    <p>
+      We help boost the psychological resilience of humans through our secure
+      community that offers well-oriented and chosen content. Share your
+      experiences with other survivors and get sessions with our specialists
+    </p>
+    <div class="buttons">
+      <button class="btn btn-primary" routerLink="/register">
+        Get Started
+      </button>
+      <button class="btn btn-primary outlined" routerLink="/under">
+        More Info
+      </button>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <h2 class="value">10k</h2>
+        <p class="value-attibute">Active Subscribers</p>
+      </div>
+      <div class="stat">
+        <h2 class="value">900+</h2>
+        <p class="value-attibute">Verified Specialists</p>
+      </div>
+      <div class="stat">
+        <h2 class="value">23k</h2>
+        <p class="value-attibute">Premium Resources</p>
+      </div>
+    </div>
+  </div>
+  <div class="swipped-carousel">
+    <ngb-carousel>
+      <ng-template ngbSlide>
+        <div class="swipped-img-container">
+          <img
+            src="../../../assets/Home/pers1.svg"
+            alt="Angular Carousel 1"
+            class="swipped-img"
+          />
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <div class="swipped-img-container">
+          <img
+            src="../../../assets/Home/pers2.svg"
+            alt="Angular Carousel 2"
+            class="swipped-img"
+          />
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <div class="swipped-img-container">
+          <img
+            src="../../../assets/Home/pers3.svg"
+            alt="Angular Carousel 3"
+            class="swipped-img"
+          />
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</section>
+
+<!-- ############################### SECTIONS 2 ################################## -->
+<div class="scroll-to-this" id="services-section"></div>
+<section class="section2">
+  <div class="our-services">
+    <div class="blue_cicrle">
+      <div class="blank">
+        <h2>Our Services</h2>
+        <p>
+          We pride our selves in our ability to serve humanity with all
+          diligence, efficiency and care.
+        </p>
+        <img
+          src="../../../assets/Home/Contactus-pana1.png"
+          alt="our services"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="services">
+    <div class="box solo">
+      <img src="../../../assets/Home/services/livepod.svg" alt="live podcats" />
+      <h3>Live Podcasts</h3>
+      <p>Get the best from our contents, resources and daily podcasts.</p>
+      <button class="btn btn-primary" routerLink="under">Explore</button>
+    </div>
+
+    <div class="box">
+      <img src="../../../assets/Home/services/cofee.svg" alt="Coffee Talks" />
+      <h3>Coffee Talks</h3>
+      <p>Join support groups, read stories and share your story too.</p>
+      <button class="btn btn-primary" routerLink="under">Explore</button>
+    </div>
+
+    <div class="box">
+      <img
+        src="../../../assets/Home/services/therapy.svg"
+        alt="therapy sessions"
+      />
+      <h3>Book therapy sessions</h3>
+      <p>
+        Test your mind and be examined by the best psychologists in the world.
+      </p>
+      <button class="btn btn-primary" routerLink="under">Explore</button>
+    </div>
+  </div>
+</section>
+
+<!-- ############################### SECTIONS 3 ################################## -->
+
+<section class="section3">
+  <div class="buttons-side">
+    <div class="description-xl-lg-md">
+      <h2>Specialty</h2>
+      <p>
+        We provide digital care and support for the manipulated with appropriate
+        rehabilitation interventions. We seek to build a secure community that
+        offers well-oriented and chosen content that improves the psychology of
+        students.
+      </p>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-primary">Social</button>
+      <button class="btn btn-primary">Testing</button>
+      <button class="btn btn-primary">Live sessions</button>
+      <button class="btn btn-primary">Development</button>
+      <button class="btn btn-primary">Therapy</button>
+      <button class="btn btn-primary">Health</button>
+      <button class="btn btn-primary">Evolution</button>
+      <button class="btn btn-primary">Mindset</button>
+      <button class="btn btn-primary">Neuropsychology</button>
+    </div>
+  </div>
+  <div class="image-side">
+    <img
+      src="../../../assets/Home/Illustration&Title.png"
+      alt="Illustration"
+      class="right-img"
+    />
+  </div>
+  <div class="description-sm-xs">
+    <h2>Specialty</h2>
+    <p>
+      We provide digital care and support for the manipulated with appropriate
+      rehabilitation interventions. We seek to build a secure community that
+      offers well-oriented and chosen content that improves the psychology of
+      students.
+    </p>
+  </div>
+</section>
+
+<!-- ############################### SECTIONS 4 ################################## -->
+
+<section class="section4">
+  <div class="header">
+    <h1>Meet Our Specialists</h1>
+    <p>
+      Our specialists are specially picked to meet your needs and take care of
+      you mind. All our specialists are highly professional and well trained
+    </p>
+  </div>
+  <div class="body">
+    <div class="buttons">
+      <button class="outlined act-btn btn btn-primary">Neuropsychology</button>
+      <button class="outlined btn btn-primary">Student Leads</button>
+      <button class="outlined btn btn-primary">Community leads</button>
+      <button class="outlined btn btn-primary">See all</button>
+    </div>
+    <div class="frames">
+      <div class="frame">
+        <img src="../../../assets/Home/Rectangle1.png" alt="Samira Firas" />
+        <div class="content">
+          <h3 class="nom">Samira Firas</h3>
+          <p class="special">Pschologist</p>
+          <div class="stats">
+            <div class="stat"><i class="fa-solid fa-star"></i> 4.9</div>
+            <div class="stat"><i class="fa-solid fa-suitcase"></i> 8 yrs</div>
+          </div>
+          <button class="btn btn-primary">Chat</button>
+        </div>
+      </div>
+      <div class="frame">
+        <img src="../../../assets/Home/Rectangle2.png" alt="Aymen Sam" />
+        <div class="content">
+          <h3 class="nom">Aymen Sam</h3>
+          <p class="special">Pschologist</p>
+          <div class="stats">
+            <div class="stat"><i class="fa-solid fa-star"></i> 4.8</div>
+            <div class="stat"><i class="fa-solid fa-suitcase"></i> 5 yrs</div>
+          </div>
+          <button class="btn btn-primary">Chat</button>
+        </div>
+      </div>
+      <div class="frame solo">
+        <img src="../../../assets/Home/Rectangle3.png" alt="Adel Jani" />
+        <div class="content">
+          <h3 class="nom">Adel Jani</h3>
+          <p class="special">Pschologist</p>
+          <div class="stats">
+            <div class="stat"><i class="fa-solid fa-star"></i> 4.7</div>
+            <div class="stat"><i class="fa-solid fa-suitcase"></i> 9 yrs</div>
+          </div>
+          <button class="btn btn-primary">Chat</button>
+        </div>
+      </div>
+      <div class="frame">
+        <img src="../../../assets/Home/Rectangle4.png" alt="Sali James" />
+        <div class="content">
+          <h3>Sali James</h3>
+          <p>Pschologist</p>
+          <div class="stats">
+            <div class="stat"><i class="fa-solid fa-star"></i> 4.5</div>
+            <div class="stat"><i class="fa-solid fa-suitcase"></i> 4 yrs</div>
+          </div>
+          <button class="btn btn-primary">Chat</button>
+        </div>
+      </div>
+      <div class="frame">
+        <img src="../../../assets/Home/Rectangle5.png" alt="Emily Sam" />
+        <div class="content">
+          <h3>Emily Sam</h3>
+          <p>Pschologist</p>
+          <div class="stats">
+            <div class="stat"><i class="fa-solid fa-star"></i> 4.6</div>
+            <div class="stat"><i class="fa-solid fa-suitcase"></i> 5 yrs</div>
+          </div>
+          <button class="btn btn-primary">Chat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ################################# BIRDS ##################################### -->
+
+<div class="birds-in-the-sky">
+  <img class="bird bird1" src="../../../assets/Home/fly.png" alt="Sky" />
+  <img class="bird bird2" src="../../../assets/Home/fly.png" alt="Sky" />
+  <img class="sky" src="../../../assets/Home/sky.png" alt="Sky" />
+</div>
+
+<!-- ############################### SECTIONS 5 ################################## -->
+<div class="scroll-to-this" id="blogs-section"></div>
+<section class="section5">
+  <h1>Blog</h1>
+  <div class="latest-all">
+    <h2>Latest</h2>
+    <a routerLink="/blogs">View all</a>
+  </div>
+  <div *ngIf="blogs.length === 0" class="skeleton_blogs">
+    <div class="blog" *ngFor="let skeleton_blog of skeleton_blogs">
+      <app-blog-skeleton></app-blog-skeleton>
+    </div>
+  </div>
+
+  <div *ngIf="blogs.length !== 0" class="blogs">
+    <div class="blog" *ngFor="let blog of blogs">
+      <i
+        *ngIf="user.role == 'Administrator' || blog.user._id == user._id"
+        class="fa fa-trash delete-icon"
+        (click)="delete(blog._id)"
+      ></i>
+      <img
+        src="{{ blog.image }}"
+        [routerLink]="['/blog', blog._id]"
+        alt="{{ blog.title }}"
+      />
+      <div class="infos">
+        <span class="type">{{ blog.tags[0] }}</span>
+        <span class="time">{{ DateParse(blog.createdAt) }}</span>
+      </div>
+      <p class="title">{{ blog.title }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ############################### SECTIONS 6 ################################## -->
+<br />
+<div class="scroll-to-this" id="about-us-section"></div>
+<section class="section6">
+  <img
+    class="team"
+    src="../../../assets/images/team/about us.jpeg"
+    alt="about us"
+  />
+  <div class="about">
+    <div class="header">
+      <img src="../../../assets/Home/about_line.svg" alt="about us" />
+      <h1>About Us</h1>
+    </div>
+    <p>
+      We are a group of students from different fields of expertise and we are
+      dealing with an idea of We Shield in order to create our POC so that we
+      can succeed in our product.
+    </p>
+    <p>
+      Our objective is to Create a safe community for students and young people,
+      Accustom students and vulnerable characters to sharing their experiences
+      with other people either with podcasts or live and lastly always Improve
+      user experience through personalization
+    </p>
+    <button class="btn btn-primary">Join Us</button>
+  </div>
+</section>
+
+<!-- ############################### SECTIONS 7 ################################## -->
+
+<section class="section7">
+  <div class="header">
+    <h1>Our Team</h1>
+    <!-- <p>
+      Our specialists are specially picked to meet your needs and take care of
+      you mind. All our specialists are highly professional and well trained
+    </p> -->
+  </div>
+  <div class="body">
+    <div class="frames team">
+      <div class="frame">
+        <img src="../../../assets/images/team/1.jpeg" alt="Aymen Sam" />
+        <div class="content">
+          <h3 class="nom">Hiba Hammami</h3>
+          <p class="special">Cheif Executive Officer</p>
+        </div>
+      </div>
+      <div class="frame">
+        <img src="../../../assets/images/team/2.jpeg" alt="Adel Jani" />
+        <div class="content">
+          <h3 class="nom">Riadh Dakhli</h3>
+          <p class="special">Cheif Technical Officer</p>
+        </div>
+      </div>
+      <div class="frame">
+        <img src="../../../assets/images/team/3.jpeg" alt="Sali James" />
+        <div class="content">
+          <h3>Abir Zahra</h3>
+          <p>Cheif Marketing Officer</p>
+        </div>
+      </div>
+      <div class="frame">
+        <img src="../../../assets/images/team/4.jpeg" alt="Emily Sam" />
+        <div class="content">
+          <h3>Lacina Diarrassouba</h3>
+          <p>Cheif Commercial Officer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

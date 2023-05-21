@@ -1,0 +1,17 @@
+<div *ngIf="getOpen()" [ngClass]="['toast', getType(), getShow()]">
+  <div class="text">
+    <span class="icon">
+      <i *ngIf="getType() === 'success'" class="fa-solid fa-circle-check"></i>
+      <i
+        *ngIf="getType() === 'warning'"
+        class="fa-solid fa-triangle-exclamation"
+      ></i>
+      <i
+        *ngIf="getType() === 'info' || getType() === 'error'"
+        class="fa-solid fa-circle-exclamation"
+      ></i>
+    </span>
+    {{ getText() }}
+  </div>
+  <div class="close" (click)="close()"><i class="fa-solid fa-xmark"></i></div>
+</div>

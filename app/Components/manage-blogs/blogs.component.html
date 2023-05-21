@@ -1,0 +1,107 @@
+<div class="main-manage-blogs">
+  <!-- <app-user-activity></app-user-activity> -->
+  <!-- ################################### HEADER ################################### -->
+  <div class="header">
+    <div class="research">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search appointments, user, blog, etc" />
+    </div>
+    <div class="user">
+      <i class="fa-solid fa-bell"></i>
+      <img src="{{ GetUser().profilImage }}" class="user_img" />
+      <div class="userName">
+        <h4>{{ GetUser().firstName }} {{ GetUser().lastName }}</h4>
+        <span>Welcome</span>
+      </div>
+    </div>
+  </div>
+  <!-- ################################### BODY ################################### -->
+  <div class="manage-blogs">
+    <div class="topside">
+      <div class="refrech-and-filter">
+        <a href="/manage_blogs" class="refrech">
+          <button class="btn btn-outline-secondary">
+            <i class="fa-solid fa-arrows-rotate"></i> Refresh
+          </button>
+        </a>
+        <select class="form-select filter">
+          <option selected>Monthly</option>
+          <option value="1">Weekly</option>
+          <option value="2">Daily</option>
+        </select>
+      </div>
+      <a href="/create_blog">
+        <button class="btn btn-primary" id="btn">New Post</button>
+      </a>
+    </div>
+
+    <div class="cards">
+      <div class="overall paper">
+        <h4>Overall User Activity</h4>
+        <canvas id="UserActivity">{{ chart }}</canvas>
+      </div>
+
+      <div class="numbers paper">
+        <div class="blogs-numbers">
+          <a routerLink="/under">View detail</a>
+          <h5>Total Blogs</h5>
+          <h2>{{ nblogs }} blogs</h2>
+        </div>
+        <div class="active-numbers">
+          <a routerLink="/under">View detail</a>
+          <h5>Active Followers</h5>
+          <h2>{{ nusers }}</h2>
+        </div>
+      </div>
+
+      <div class="pending paper">
+        <div class="pending-header">
+          <h4>Pending Posts ({{ plength }})</h4>
+          <a routerLink="/under">View All</a>
+        </div>
+        <div *ngFor="let p of pendings" class="post">
+          <img
+            src="{{ p.image }}"
+            alt="{{ p.title }}"
+            [routerLink]="['/blog', p._id]"
+          />
+          <div class="blog-details">
+            <h5>{{ p.title }}</h5>
+            <p>{{ p.description }}</p>
+          </div>
+          <div class="action">
+            <div class="decline">
+              <i class="fa-solid fa-xmark" (click)="delete(p._id)"></i>
+            </div>
+            <div *ngIf="canApprove" class="accept">
+              <i class="fa-solid fa-check" (click)="approuve(p._id)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="live paper">
+        <div class="live-header">
+          <h4>Live Posts</h4>
+          <a routerLink="/under">View All</a>
+        </div>
+        <div *ngFor="let lv of live" class="post">
+          <img
+            src="{{ lv.image }}"
+            alt="{{ lv.title }}"
+            [routerLink]="['/blog', lv._id]"
+          />
+          <div class="blog-details">
+            <h5>{{ lv.title }}</h5>
+            <p>{{ lv.description }}</p>
+          </div>
+          <div class="action">
+            <div class="decline">
+              <i class="fa-solid fa-xmark" (click)="delete(lv._id)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

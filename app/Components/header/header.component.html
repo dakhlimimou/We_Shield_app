@@ -1,0 +1,93 @@
+<div *ngIf="!open" (click)="openNavbar()" class="container_open_icon">
+  <i class="fa-solid fa-bars open_icon"></i>
+</div>
+<!-- [ngClass]="!open ? 'bordered': 'greyedOut'" -->
+<nav *ngIf="open" class="navbar">
+  <i class="fa-solid fa-xmark close_icon" (click)="closeNavbar()"></i>
+  <div class="container-img">
+    <a routerLink="">
+      <img src="../../../assets/images/logo/logo1.svg" alt="logo" />
+    </a>
+  </div>
+
+  <div *ngIf="!deconnect" class="user vertical-user">
+    <i class="fa-solid fa-bell"></i>
+    <img
+      src="{{ getUser()?.profilImage }}"
+      class="user_img"
+      routerLink="check_profile"
+    />
+    <div class="userName">
+      <h4>{{ getUser().firstName }} {{ getUser().lastName }}</h4>
+      <span>Welcome</span>
+    </div>
+  </div>
+
+  <div class="container-links">
+    <a (click)="navigateToSection('home-section')" class="active"> Home </a>
+
+    <a (click)="navigateToSection('services-section')" class=""> Services </a>
+
+    <a (click)="navigateToSection('about-us-section')" class=""> About us </a>
+
+    <a (click)="navigateToSection('blogs-section')" class=""> Blogs </a>
+
+    <a (click)="navigateToSection('contact-section')" class=""> Contact </a>
+  </div>
+  <div class="container-actions">
+    <!-- <img src="../../../assets/images/svg/search.svg" class="icon" /> -->
+
+    <div class="buttons">
+      <button *ngIf="deconnect" class="login" routerLink="login">Login</button>
+      <button *ngIf="deconnect" class="sign_up" (click)="opene(content)">
+        Sign up
+      </button>
+    </div>
+
+    <div *ngIf="!deconnect" class="user horizantal-user">
+      <img
+        src="{{ getUser().profilImage }}"
+        class="user_img"
+        routerLink="check_profile"
+      />
+      <div class="userName">
+        <h4>{{ getUser().firstName }} {{ getUser().lastName }}</h4>
+        <span>Welcome</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<ng-template #content let-modal style="position: absolute">
+  <div class="modal-customised">
+    <div class="modal-header">
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+      <h4 class="modal-title" id="modal-basic-title">Create Account</h4>
+    </div>
+    <div class="modal-body">
+      <p class="who">Who is creating this account?</p>
+      <div class="buttons">
+        <button class="btn btn-light btn-create" (click)="showing()">
+          User
+        </button>
+        <button class="btn btn-light btn-create" (click)="hiding()">
+          Expert
+        </button>
+      </div>
+      <p class="type" *ngIf="!hide">Find your safe space today</p>
+      <p class="type" *ngIf="hide">Provide Empathy and Care</p>
+      <div class="form-group">
+        <button class="btn btn-primary" id="btn" (click)="GoToRegisterPage()">
+          Create
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- <img src="../../../assets/Home/Woman.png" alt="" class="person-holder" />
+  <img src="../../../assets/Home/Man.png" alt="" class="person-holder" /> -->
+</ng-template>

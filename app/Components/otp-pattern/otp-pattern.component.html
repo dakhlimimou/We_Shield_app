@@ -1,0 +1,76 @@
+<div class="forget_pass">
+  <div class="preview">
+    <div class="container-girl">
+      <h1 class="title">Enter the OTP</h1>
+      <h1 class="title">sent to email.</h1>
+      <img class="girl_img" src="../../../assets/images/login/email_guy.png" />
+    </div>
+  </div>
+  <div class="form">
+    <div class="head">
+      <img class="logo" src="../../../assets/images/logo/logo1.svg" />
+    </div>
+    <!-- FORM GROUP -->
+    <form class="body" [formGroup]="form_group" (ngSubmit)="onSubmit()">
+      <!-- EMAIL INPUT -->
+      <h2>Enter OTP Code</h2>
+      <p>
+        Please enter the 5 digit code that was sent to your email now. Code
+        expires in <span class="otp-time">10:00</span>
+      </p>
+      <div class="otp-group">
+        <input
+          class="otp-input"
+          maxlength="1"
+          formControlName="otp1"
+          [ngClass]="{ 'is-invalid': submitted && f.otp1.errors }"
+        />
+        <input
+          class="otp-input"
+          maxlength="1"
+          formControlName="otp2"
+          [ngClass]="{ 'is-invalid': submitted && f.otp2.errors }"
+        />
+        <input
+          class="otp-input"
+          maxlength="1"
+          formControlName="otp3"
+          [ngClass]="{ 'is-invalid': submitted && f.otp3.errors }"
+        />
+        <input
+          class="otp-input"
+          maxlength="1"
+          formControlName="otp4"
+          [ngClass]="{ 'is-invalid': submitted && f.otp4.errors }"
+        />
+        <input
+          class="otp-input"
+          maxlength="1"
+          formControlName="otp5"
+          [ngClass]="{ 'is-invalid': submitted && f.otp5.errors }"
+        />
+      </div>
+      <!-- EMAIL INPUT -->
+
+      <!-- BUTTONS -->
+      <div class="buttons_group">
+        <button class="signin">Verify OTP</button>
+      </div>
+      <p class="have_account" [ngClass]="['have_account', disabled]">
+        Didn’t get code ?
+        <a
+          style="color: blue; text-decoration: underline; cursor: pointer"
+          (click)="resendOtp()"
+          >Resend OTP</a
+        >
+      </p>
+      <!-- BUTTONS -->
+    </form>
+    <!-- FORM GROUP -->
+    <div class="footer">
+      <p class="have_account">
+        Do you need any help ? <a href="/">Customer Support</a>
+      </p>
+    </div>
+  </div>
+</div>

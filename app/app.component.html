@@ -1,0 +1,14 @@
+<app-header *ngIf="showheader"></app-header>
+<app-toast></app-toast>
+<app-loading></app-loading>
+<router-outlet></router-outlet>
+<div class="dashboard" *ngIf="showSidebar">
+  <div class="sidebar">
+    <app-dasboard-sidebar></app-dasboard-sidebar>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<router-outlet *ngIf="showSidebar == false"></router-outlet>
+<app-footer *ngIf="showheader"></app-footer>

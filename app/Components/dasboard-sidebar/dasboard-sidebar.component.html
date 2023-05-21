@@ -1,0 +1,75 @@
+<div [ngClass]="['sideBar', navbar_classes]">
+  <div class="sidebar-elements">
+    <div [ngClass]="['trogle-hider', trogle_hide]" (click)="trogleNavbar()">
+      <i *ngIf="!opened" class="fa-solid fa-chevron-right"></i>
+      <i *ngIf="opened" class="fa-solid fa-chevron-left"></i>
+    </div>
+    <img
+      class="logo"
+      src="../../../assets/images/logo/logo1.svg"
+      alt="WeShield"
+      routerLink="/"
+    />
+    <a href="/check_profile">
+      <div class="link">
+        <i class="fa-solid fa-circle-user"></i>
+        <p>Profil</p>
+      </div>
+    </a>
+    <a href="/check_profile">
+      <div class="link">
+        <i class="fa-solid fa-hourglass-start"></i>
+        <p>History</p>
+      </div>
+    </a>
+    <a *ngIf="canMakeBlogs" href="/manage_blogs">
+      <div class="link">
+        <i class="fa-solid fa-file-pen"></i>
+        <p>Blog</p>
+      </div>
+    </a>
+    <a *ngIf="canMakeBlogs" target="_blank" href="https://weshield.netlify.app/blog/63c58961d9460d0d7b7c2fcd">
+      <div class="link">
+        <i class="fa-solid fa-microphone-lines"></i>
+        <p>Podcast</p>
+      </div>
+    </a>
+    <a *ngIf="isAdmin" href="/users">
+      <div class="link">
+        <i class="fa-solid fa-users"></i>
+        <p>Users</p>
+      </div>
+    </a>
+    <a *ngIf="isAdmin" href="/under">
+      <div class="link">
+        <i class="fa-solid fa-cubes"></i>
+        <p>Manage Tests</p>
+      </div>
+    </a>
+    <a *ngIf="isAdmin" href="/dashboard">
+      <div class="link">
+        <i class="fa-solid fa-rss"></i>
+        <p>Overview</p>
+      </div>
+    </a>
+    <hr />
+    <a href="/under">
+      <div class="link">
+        <i class="fa-solid fa-headset"></i>
+        <p>Support</p>
+      </div>
+    </a>
+    <a href="/under">
+      <div class="link">
+        <i class="fa-solid fa-gear"></i>
+        <p>Settings</p>
+      </div>
+    </a>
+    <a href="/login">
+      <div class="link logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <p (click)="logOut()">Log out</p>
+      </div>
+    </a>
+  </div>
+</div>

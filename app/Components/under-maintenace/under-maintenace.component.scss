@@ -1,0 +1,140 @@
+@use "../../../assets/scss/media-queries.scss" as *;
+
+.main {
+  height: 100vh;
+  width: 100%;
+  padding: 70px;
+
+  background-image: url(../../../assets/Maintenance/Background.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  @include lt-xl {
+    padding: 50px;
+  }
+  @include lt-lg {
+    padding: 40px;
+  }
+  @include lt-md {
+    padding: 30px;
+  }
+}
+
+.logo {
+  width: 220px;
+  cursor: pointer;
+
+  @include lt-xl {
+    width: 180px;
+  }
+  @include lt-lg {
+    width: 150px;
+  }
+}
+
+.under-container {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.icons {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include lt-sm {
+    justify-content: space-evenly;
+  }
+
+  .icon {
+    height: 150px;
+    width: 150px;
+    margin: 50px 40px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 500px;
+
+    font-size: 90px;
+    color: #ffffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include lt-xl {
+      height: 120px;
+      width: 120px;
+      margin: 50px 30px;
+      font-size: 70px;
+    }
+    @include lt-lg {
+      height: 100px;
+      width: 100px;
+      margin: 40px 25px;
+      font-size: 60px;
+    }
+    @include lt-md {
+      height: 90px;
+      width: 90px;
+      margin: 30px 20px;
+      font-size: 50px;
+    }
+    @include lt-sm {
+      height: 70px;
+      width: 70px;
+      margin: 20px 0px;
+      font-size: 40px;
+    }
+  }
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 50px;
+  text-align: center;
+  color: #ffffff;
+
+  @include lt-xl {
+    font-size: 40px;
+  }
+  @include lt-lg {
+    font-size: 35px;
+  }
+  @include lt-md {
+    font-size: 30px;
+  }
+  @include lt-sm {
+    font-size: 20px;
+  }
+}
+
+p {
+  font-weight: 400;
+  font-size: 35px;
+  text-align: center;
+  color: #ffffff;
+
+  @include lt-xl {
+    font-size: 30px;
+  }
+  @include lt-lg {
+    font-size: 25px;
+  }
+  @include lt-md {
+    font-size: 20px;
+  }
+  @include lt-sm {
+    font-size: 16px;
+  }
+}

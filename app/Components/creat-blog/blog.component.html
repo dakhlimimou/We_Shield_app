@@ -1,0 +1,203 @@
+<div class="container">
+  <div class="header">
+    <div class="research">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search appointments, user, blog, etc" />
+    </div>
+    <div class="user">
+      <i class="fa-solid fa-bell"></i>
+      <img src="{{ GetUser().profilImage }}" class="user_img" />
+      <div class="userName">
+        <h4>{{ GetUser().firstName }} {{ GetUser().lastName }}</h4>
+        <span>Welcome</span>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    <div class="row lg-4">
+      <div class="col-sm-6 first-inputs">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter title of blog post"
+          formControlName="title"
+          [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+        />
+      </div>
+
+      <div class="col-sm-2 first-inputs">
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="language"
+          [ngClass]="{ 'is-invalid': submitted && f.language.errors }"
+        >
+          <option selected value="En">English</option>
+          <option value="Fr">Francais</option>
+        </select>
+      </div>
+
+      <div class="col-sm-2 first-inputs">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Preview</option>
+          <option value="Next">Next</option>
+        </select>
+      </div>
+
+      <div class="col-sm-2">
+        <button class="btn btn-primary submit-button" id="btn">
+          Create Post
+        </button>
+      </div>
+    </div>
+
+    <div class="row lg-2">
+      <div class="col-sm-8">
+        <div
+          class="description"
+          [ngClass]="{ 'is-invalid': submitted && f.content.errors }"
+        >
+          <quill-editor
+            id="quill"
+            class="text-quill-editor"
+            formControlName="content"
+          ></quill-editor>
+        </div>
+        <div class="image">
+          <i
+            class="fa-solid fa-caret-down"
+            style="margin-left: 2%; color: #3a76ea"
+          ></i>
+          <h4>image</h4>
+          <div class="row lg-2">
+            <div class="col-sm-3">
+              <label for="" class="label">
+                <span *ngIf="!uploading">Upload image</span>
+                <span *ngIf="uploading">Uploading ...</span>
+              </label>
+              <label for="" class="label">Description</label>
+            </div>
+            <div class="col-sm-8">
+              <input
+                type="file"
+                class="form-control"
+                id="inputfile"
+                (change)="UploadImage($event)"
+              />
+              <textarea
+                type="text"
+                rows="3"
+                class="form-control"
+                id="inputtext"
+                placeholder="Enter your caption"
+                formControlName="description"
+                [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="author">
+          <label for="">Author</label>
+          <div class="auteur">
+            <img
+              src="{{ user.profilImage }}"
+              class="user_img"
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-left: 10px;
+              "
+            />
+
+            <h5 style="margin-top: -10%; margin-left: 70px; margin-bottom: -7%">
+              {{ user.firstName }} {{ user.lastName }}
+            </h5>
+          </div>
+          <div class="row lg-2">
+            <div class="col-sm-7">
+              <label for="">Post Date</label>
+              <input type="date" class="auteur" />
+            </div>
+            <div class="col-sm-5">
+              <label for="">Time</label>
+              <input type="time" class="auteur" />
+            </div>
+          </div>
+          <label for="">Category</label>
+          <div class="auteur">
+            <select class="auteur" aria-label="Default select example">
+              <option selected>New</option>
+              <option value="Next">Trends</option>
+            </select>
+          </div>
+          <label for="">Tags</label>
+          <div class="auteur">
+            <input
+              type="text"
+              class="auteur"
+              placeholder="Tags..."
+              formControlName="tags"
+              [ngClass]="{ 'is-invalid': submitted && f.tags.errors }"
+            />
+          </div>
+          <div class="row lg-2">
+            <div class="col-sm-8">
+              <label for="">Publish in English</label>
+              <br /><br />
+              <label for="">Publish globally</label>
+            </div>
+            <div class="col-sm-4">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+              <br /><br />
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<ng-template #post let-modal>
+  <div class="modal-header">
+    <h2 class="modal-title" id="modal-basic-title" style="margin-left: 22%">
+      Add New Post
+    </h2>
+    <a
+      ><button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button
+    ></a>
+  </div>
+  <div class="modal-body">
+    <p>
+      Are you sure you want to post this article
+      <b> {{ blogForm.value.title }}</b> ?
+    </p>
+    <div class="form-group">
+      <button
+        class="btn btn-light"
+        (click)="modal.dismiss('Cross click')"
+        id="btn"
+        style="margin-left: 15%; margin-right: 5%; border-color: red"
+      >
+        Cancel
+      </button>
+      <button class="btn btn-primary" id="btn" (click)="onSubmit()">
+        Confirm
+      </button>
+    </div>
+  </div>
+</ng-template>

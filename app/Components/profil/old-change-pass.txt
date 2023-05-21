@@ -1,0 +1,103 @@
+        <!-- CHANGER PASSWORD PART -->
+        <div *ngIf="changepassword">
+          <h3>Change Password</h3>
+          <form class="row" [formGroup]="formPassword">
+            <div
+              class="input-group has-validation pass_input"
+              [ngClass]="{ 'is-invalid': submitted && p.old_password.errors }"
+            >
+              <div class="form-floating">
+                <input
+                  [type]="showPass ? 'text' : 'password'"
+                  placeholder="Password"
+                  formControlName="old_password"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && p.old_password.errors
+                  }"
+                  placeholder="Old Password"
+                />
+                <label>Password</label>
+              </div>
+              <span class="input-group-text">
+                <i
+                  *ngIf="!showPass"
+                  (click)="HandlePassView()"
+                  class="fa fa-eye"
+                ></i>
+                <i
+                  *ngIf="showPass"
+                  (click)="HandlePassView()"
+                  class="fa fa-eye-slash"
+                ></i>
+              </span>
+            </div>
+
+            <div
+              class="input-group has-validation pass_input"
+              [ngClass]="{ 'is-invalid': submitted && p.new_password.errors }"
+            >
+              <div class="form-floating">
+                <input
+                  [type]="showNewPass ? 'text' : 'password'"
+                  placeholder="Password"
+                  formControlName="new_password"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && p.new_password.errors
+                  }"
+                  placeholder="New Password"
+                />
+                <label>New Password</label>
+              </div>
+              <span class="input-group-text">
+                <i
+                  *ngIf="!showNewPass"
+                  (click)="HandleNewPassView()"
+                  class="fa fa-eye"
+                ></i>
+                <i
+                  *ngIf="showNewPass"
+                  (click)="HandleNewPassView()"
+                  class="fa fa-eye-slash"
+                ></i>
+              </span>
+            </div>
+
+            <div
+              class="input-group has-validation pass_input"
+              [ngClass]="{ 'is-invalid': submitted && p.new_password.errors }"
+            >
+              <div class="form-floating">
+                <input
+                  [type]="showCNewPass ? 'text' : 'password'"
+                  placeholder="Confirm New Password"
+                  formControlName="confirm_new_password"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && p.confirm_new_password.errors
+                  }"
+                  placeholder="New Password"
+                />
+                <label>Confirm New Password</label>
+              </div>
+              <span class="input-group-text">
+                <i
+                  *ngIf="!showCNewPass"
+                  (click)="HandleCNPassView()"
+                  class="fa fa-eye"
+                ></i>
+                <i
+                  *ngIf="showCNewPass"
+                  (click)="HandleCNPassView()"
+                  class="fa fa-eye-slash"
+                ></i>
+              </span>
+            </div>
+            <div class="buttons-group">
+              <button class="cancel" (click)="closePopup()">Cancel</button>
+              <button class="submit" (click)="changePassword()">Save</button>
+            </div>
+          </form>
+        </div>
+        <!-- CHANGER PASSWORD PART -->

@@ -1,0 +1,149 @@
+/* Importing Bootstrap SCSS file. */
+
+/* Importing Datepicker SCSS file. */
+@import "~ngx-bootstrap/datepicker/bs-datepicker";
+
+/* You can add global styles to this file, and also import other style files */
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// ------------------ scroll bar ---------------
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3a76ea;
+  // border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b182f00;
+}
+
+//--------------------------- Colors -----------------------
+:root {
+  --main: #3a76ea;
+  --white: #ffffff;
+  --red: #f80e0e;
+  --light-white: #f0f9ff;
+  --grey1: #716a6a;
+  --grey2: #a39f9f;
+  --grey3: #e0e0e0;
+  --title: #0a2446;
+  --profileA: #09c8f1;
+  --profileB: #27ae60;
+  --profileC: #f2994a;
+  --selected-day-color: rgba(0, 0, 0, 0.74);
+  --warning-bg: #ffe9d9;
+  --warning-text: #771505;
+  --warning-text-light: #bc4c2e;
+}
+
+//--------------------------- FONTS ------------------------
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assets/fonts/Open_sans/OpenSans-Light.ttf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assets/fonts/Open_sans/OpenSans-Medium.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assets/fonts/Open_sans/OpenSans-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assets/fonts/Open_sans/OpenSans-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assets/fonts/Open_sans/OpenSans-Bold.ttf");
+  font-weight: 700; // bold
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assets/fonts/Open_sans/OpenSans-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+* {
+  font-family: "OpenSans";
+}
+
+// ------------------------------- CALENDAR ------------------------
+@import url(https://cdn.syncfusion.com/ej2/ej2-base/styles/material.css);
+@import url(https://cdn.syncfusion.com/ej2/ej2-buttons/styles/material.css);
+@import url(https://cdn.syncfusion.com/ej2/ej2-popups/styles/material.css);
+@import url(https://cdn.syncfusion.com/ej2/ej2-calendars/styles/material.css);
+
+#js-licensing {
+  display: none;
+}
+
+div[style*="z-index: 999999999;"] {
+  display: none !important;
+}
+
+.e-selected .e-day {
+  background-color: var(--main) !important;
+  color: var(--white) !important;
+}
+
+.e-calendar .e-content td.e-today span.e-day {
+  border: solid 1px var(--main) !important;
+  color: var(--main) !important;
+}
+
+.e-btn.e-flat.e-primary,
+.e-css.e-btn.e-flat.e-primary {
+  display: none;
+}
+
+// form phone
+.form-phone {
+  width: 100%;
+}
+
+.form-phone .iti {
+  width: 100%;
+}
+
+.form-phone .iti input {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.text-quill-editor .ql-container {
+  max-height: 211px !important;
+}
+
+// ##################################### BOOTSTRAP ####################################

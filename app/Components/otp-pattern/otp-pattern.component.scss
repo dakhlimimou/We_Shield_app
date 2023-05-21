@@ -1,0 +1,262 @@
+@use "../../../assets/scss/media-queries.scss" as *;
+
+.forget_pass {
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main);
+  font-family: "OpenSans";
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+
+  @include lt-md {
+    background-color: var(--white);
+  }
+}
+
+.preview,
+.form {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.preview {
+  width: 30%;
+
+  @include lt-md {
+    display: none;
+  }
+
+  .container-girl {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+
+    .title {
+      margin: 0px;
+      color: var(--white);
+      font-size: 45px;
+      font-weight: 700;
+      width: 100%;
+      padding: 0px 0px 0px 40px;
+
+      @include lt-xl {
+        font-size: 40px;
+      }
+      @include md {
+        font-size: 35px;
+      }
+    }
+    .girl_img {
+      width: 100%;
+      display: block;
+      @include lt-xl {
+        height: auto;
+        width: 100%;
+      }
+      @include md {
+        height: auto;
+        width: 90%;
+      }
+    }
+  }
+}
+
+.form {
+  width: 70%;
+  padding: 45px 45px 45px 70px;
+
+  background-color: var(--white);
+  border-radius: 0px 120px 120px 0px;
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @include lt-xl {
+    padding: 20px 50px 20px 20px;
+    border-radius: 0px 80px 80px 0px;
+  }
+  @include lt-md {
+    width: 100%;
+    border-radius: 0px;
+    padding: 10px;
+  }
+}
+
+.form .head {
+  .logo {
+    width: 180px;
+    @include lt-md {
+      width: 140px;
+    }
+  }
+}
+
+.form .footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+// -------------------------------- INPUT/FORM STYLES --------------------------------
+
+.form .body {
+  width: 80%;
+  margin: auto;
+
+  @include lt-xl {
+    transform: scale(0.9);
+  }
+
+  @include lt-lg {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+    @include lt-md {
+      font-size: 20px;
+    }
+  }
+
+  p {
+    color: var(--grey1);
+    font-size: 20px;
+    @include lt-md {
+      font-size: 16px;
+    }
+  }
+
+  .otp-time {
+    color: red;
+    font-weight: 600;
+  }
+}
+
+.otp-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0px;
+  @include lt-md {
+    margin: 20px 0px;
+  }
+}
+
+.otp-input {
+  font-size: 40px;
+  font-weight: 600;
+  height: 80px;
+  width: 80px;
+  margin: 0px 40px;
+  text-align: center;
+  outline: none;
+
+  border: 2px solid var(--grey1);
+  border-radius: 10px;
+  @include lt-xl {
+    border: 1px solid var(--grey1);
+    margin: 0px 30px;
+  }
+  @include lt-lg {
+    margin: 0px 20px;
+    font-size: 30px;
+    height: 65px;
+    width: 65px;
+  }
+  @include lt-md {
+    font-size: 20px;
+    margin: 0px 2px;
+    height: 50px;
+    width: 50px;
+  }
+  &:focus {
+    outline: none;
+    border: 2px solid var(--main);
+    @include lt-xl {
+      border: 1px solid var(--main);
+    }
+  }
+}
+
+.is-invalid {
+  border: solid 1px red;
+}
+
+.buttons_group {
+  width: 100%;
+  margin: 40px 0px 20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  @include lt-xl {
+    margin: 40px 0px 15px 0px;
+  }
+
+  @include lt-md {
+    flex-direction: column;
+    margin: 20px 0px 10px 0px;
+  }
+
+  button {
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+
+    border: solid 2px var(--main);
+    border-radius: 500px;
+    padding: 10px;
+    width: 280px;
+
+    @include lt-xl {
+      font-size: 16px;
+      padding: 10px;
+      width: 240px;
+    }
+    @include lt-md {
+      margin: 5px 0px;
+      font-size: 14px;
+      width: 200px;
+    }
+  }
+
+  .signin {
+    background-color: var(--main);
+    color: var(--white);
+  }
+}
+
+.have_account {
+  font-size: 20px;
+  text-align: center;
+  @include lt-xl {
+    font-size: 18px;
+  }
+  @include lt-md {
+    font-size: 14px;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+}

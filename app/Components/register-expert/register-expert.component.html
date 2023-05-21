@@ -1,0 +1,234 @@
+<div class="signup">
+  <!-- ############################# IMAGE PART ############################ -->
+  <div class="img-part">
+    <img
+      src="../../../assets/images/logo/logo2.svg"
+      alt="Wesheild"
+      class="logo"
+      routerLink="/"
+    />
+    <div class="container-image">
+      <h1>Provide Empathy & Care to Others</h1>
+      <img
+        src="../../../assets/SignUp/mental health_DFM-01 1.png"
+        alt="mentalHealth"
+      />
+    </div>
+  </div>
+  <!-- ############################# FORM PART ############################ -->
+  <div class="form-part">
+    <div class="form-title">
+      <div class="title">
+        <h2>Create Account "Expert"</h2>
+        <p>Help humanity today</p>
+      </div>
+      <div class="language">
+        <i class="fa-solid fa-earth-americas" style="color: #3a76ea"></i>
+        English(en) <i class="fa-solid fa-caret-down"></i>
+      </div>
+
+      <img
+        src="../../../assets/images/logo/logo1.svg"
+        alt="Wesheild"
+        class="logo"
+        routerLink="/"
+      />
+    </div>
+
+    <form class="row" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="input-container">
+        <label for="inputFirstName" class="visually-hidden">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputFirstName"
+          placeholder="First Name"
+          formControlName="firstName"
+          [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+        />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+          <div *ngIf="f.firstName.errors.required">First name is required</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="inputLastName" class="visually-hidden">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputLastName"
+          placeholder="Last Name"
+          formControlName="lastName"
+          [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+        />
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+          <div *ngIf="f.lastName.errors.required">Last name is required</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="inputEmail" class="visually-hidden">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail"
+          placeholder="Email"
+          formControlName="email"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+        />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email must be valid</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="inputPhone" class="visually-hidden">Phone Number</label>
+        <ngx-intl-tel-input
+          [preferredCountries]="[CountryISO.Tunisia]"
+          [enableAutoCountrySelect]="true"
+          [enablePlaceholder]="true"
+          [searchCountryFlag]="true"
+          [searchCountryField]="[SearchCountryField.Name]"
+          [selectFirstCountry]="true"
+          [selectedCountryISO]="CountryISO.Tunisia"
+          [maxLength]="15"
+          [phoneValidation]="true"
+          name="phone"
+          formControlName="phoneNumber"
+          class="form-phone"
+          type="tel"
+          id="inputTel"
+          [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+        >
+        </ngx-intl-tel-input>
+      </div>
+      <div class="input-container">
+        <label for="inputBirthOfDate" class="visually-hidden"
+          >Birth date is required</label
+        >
+        <input
+          type="date"
+          max="2004-01-01"
+          class="form-control"
+          id="inputAge"
+          placeholder="Birth Of Date"
+          formControlName="birthDate"
+          [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }"
+        />
+        <div *ngIf="submitted && f.birthDate.errors" class="invalid-feedback">
+          <div *ngIf="f.birthDate.errors.required">
+            Birth Of Date is required
+          </div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="inputSex" class="visually-hidden">Sex</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="sex"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.sex.errors }"
+        >
+          <option selected value="Man">Man</option>
+          <option value="Woman">Woman</option>
+          <option value="Other">Other</option>
+        </select>
+        <div *ngIf="submitted && f.sex.errors" class="invalid-feedback">
+          <div *ngIf="f.sex.errors.required">Sex is required</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="experience" class="visually-hidden">Experience</label>
+        <select
+          aria-label="Default select example"
+          formControlName="experience"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.experience.errors }"
+        >
+          <option selected value="0">0 years of experience</option>
+          <option selected value="1">1 year of experience</option>
+          <option value="2">2 years of experience</option>
+          <option value="3">3 years of experience</option>
+          <option value="3+">3 years + of experience</option>
+        </select>
+        <div *ngIf="submitted && f.speciality.errors" class="invalid-feedback">
+          <div *ngIf="f.experience.errors">Experience is required</div>
+        </div>
+      </div>
+      <div class="input-container" class="input-container password">
+        <label for="inputPassword" class="visually-hidden">Password</label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          formControlName="password"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+        />
+        <i class="fa-solid fa-eye eye" matSuffix (click)="hide = !hide"></i>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="flexCheckDefault" />
+        <label class="form-check-label" for="flexCheckDefault"
+          >Remember me</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="flexCheckDefault"
+          formControlName="acceptTerms"
+          [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          I agree to the <a routerLink="/FAQ">Terms</a> and
+          <a routerLink="/FAQ">Conditions</a></label
+        >
+        <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">
+          Accept Ts & Cs is required
+        </div>
+      </div>
+      <div class="other-signs">
+        Sign up as a member ?
+        <a routerLink="/register">click here</a>
+      </div>
+      <div class="other-signs">
+        Already have an account?
+        <a routerLink="/login"> Sign in </a>
+      </div>
+      <div class="input-container">
+        <button for="inputBirthOfDate" class="btn btn-primary">Sign up</button>
+      </div>
+      <div class="input-container">
+        <button
+          for="inputBirthOfDate"
+          class="btn btn-primary"
+          style="background-color: #ffffff; color: #0a2446"
+        >
+          <i class="fa-brands fa-google"></i> Sign up with Google
+        </button>
+      </div>
+    </form>
+
+    <div class="footer">
+      <img
+        class="google_play"
+        src="../../../assets/images/login/Google_Play_Store.png"
+        alt="google play"
+      />
+      <img
+        src="../../../assets/images/login/App_Store (1).png"
+        alt="app store"
+      />
+    </div>
+  </div>
+</div>

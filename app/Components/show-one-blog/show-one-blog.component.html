@@ -1,0 +1,166 @@
+<div *ngIf="GetBlog()" class="show-one-blog">
+  <div
+    class="image"
+    [style.background-image]="
+      'linear-gradient(0deg, rgba(0, 0, 0, 6), rgba(0, 0, 0, 0.6)),url(' +
+      GetBlog().image +
+      ')'
+    "
+  >
+    <div class="header-container">
+      <h2 class="Realizing">
+        {{ GetBlog().title }}
+      </h2>
+      <p class="name">
+        Created By : {{ GetBlog().user.firstName }}
+        {{ GetBlog().user.lastName }}
+      </p>
+      <div class="tags">
+        <button *ngFor="let tag of GetBlog().tags" class="btn btn-primary">
+          {{ tag }}
+        </button>
+      </div>
+
+      <div class="stats">
+        <p class="stat">44</p>
+        <p class="stat">28</p>
+      </div>
+    </div>
+  </div>
+  <div class="text">
+    <div class="left-right">
+      <div class="spacing">
+        <p class="date">{{ commentDate(GetBlog().createdAt) }}</p>
+      </div>
+      <div class="rest">
+        <div class="content">
+          <div [innerHTML]="GetBlog().content"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="edit-comment-scroll-target" #startEditHere></div>
+    <div class="left-right">
+      <div class="spacing"></div>
+      <div class="rest txt-container">
+        <div class="txt">
+          <p *ngIf="GetUser().role === ''">Comments</p>
+          <p *ngIf="GetUser().role !== ''">Leave a comment</p>
+        </div>
+        <div *ngIf="GetUser().role !== ''" class="txt">
+          <p
+            class="like"
+            [ngClass]="{ loading_like: like_loading, liked: likes.liked }"
+            (click)="LikeDislikeBlog()"
+          >
+            <span *ngIf="!likes.liked">Like </span>
+            <span *ngIf="likes.liked">Liked </span>
+            <span>({{ likes.nblikes }})</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="GetUser().role !== ''" class="left-right user-img-and-name">
+      <div class="all user-img-and-field">
+        <img src="{{ GetUser().profilImage }}" class="user_img" />
+        <div class="user-field">
+          <p class="user-name">
+            {{ GetUser().firstName }} {{ GetUser().lastName }}
+          </p>
+          <form [formGroup]="AddCommentForm" (ngSubmit)="SubmitComment()">
+            <textarea
+              type="text"
+              rows="3"
+              class="form-control"
+              id="inputtext"
+              placeholder="Wreite a comment"
+              formControlName="comment"
+              [ngClass]="{
+                'is-invalid': submittedCreate && formAdd.comment.errors
+              }"
+            ></textarea>
+            <button class="btn btn-primary post-comment-btn">
+              <span *ngIf="!edit.isEditing"> Post Comment </span>
+              <span *ngIf="edit.isEditing"> Edit Comment </span>
+            </button>
+            <button
+              type="button"
+              (click)="cancelEditing()"
+              *ngIf="edit.isEditing"
+              class="btn btn-secondary post-comment-btn"
+            >
+              <span> Cancel Editing </span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERE IS THE COMMENTS  -->
+    <br />
+    <div class="all-comments">
+      <app-comment
+        *ngFor="let comment of GetComments()"
+        [comment]="comment"
+        [startEditHere]="startEditHere"
+        [form]="AddCommentForm"
+        [edit]="edit"
+      ></app-comment>
+    </div>
+    <!-- HERE IS THE COMMENTS  -->
+  </div>
+  <div class="posts">
+    <h2 class="related">Related Posts</h2>
+    <div class="posts-group">
+      <div class="post" id="post1">
+        <div class="exp-container">
+          <button class="btn btn-primary" id="experiences">Experiences</button>
+        </div>
+        <div class="post-body">
+          <div>
+            <small>2022-01-01</small>
+            <h4>How I fought the manipulation in School</h4>
+            <p class="desc">
+              Don't have regrets but believe in yourself, belief in your future,
+              you will find your way. A fire burning inside you is mighty; it is
+              waiting to burn brigh
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="post" id="post2">
+        <div class="exp-container">
+          <button class="btn btn-primary" id="experiences">Experiences</button>
+        </div>
+        <div class="post-body">
+          <div>
+            <small>2022-01-01</small>
+            <h4>How I fought the manipulation in School</h4>
+            <p class="desc">
+              Don't have regrets but believe in yourself, belief in your future,
+              you will find your way. A fire burning inside you is mighty; it is
+              waiting to burn brigh
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="post" id="post3">
+        <div class="exp-container">
+          <button class="btn btn-primary" id="experiences">Experiences</button>
+        </div>
+        <div class="post-body">
+          <div>
+            <small>2022-01-01</small>
+            <h4>How I fought the manipulation in School</h4>
+            <p class="desc">
+              Don't have regrets but believe in yourself, belief in your future,
+              you will find your way. A fire burning inside you is mighty; it is
+              waiting to burn brigh
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

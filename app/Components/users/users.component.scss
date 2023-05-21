@@ -1,0 +1,229 @@
+@use "../../../assets/scss/media-queries.scss" as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+
+  .research {
+    color: var(--grey2);
+    width: 30%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include xs {
+      width: 100%;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      padding: 10px;
+      width: 100%;
+      background-color: transparent;
+    }
+
+    &:focus-within {
+      border-bottom: solid 1px var(--grey2);
+    }
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include xs {
+      display: none;
+    }
+
+    .fa-bell {
+      font-size: 24px;
+      color: var(--grey1);
+      cursor: pointer;
+    }
+
+    .user_img {
+      height: 50px;
+      width: 50px;
+      border-radius: 500px;
+      margin: 0px 25px;
+      object-fit: cover;
+
+      @include lt-xl {
+        height: 40px;
+        width: 40px;
+        margin: 0px 20px;
+      }
+    }
+
+    .userName {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      h4,
+      p {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      h4 {
+        font-weight: 600;
+        font-size: 24px;
+        @include lt-xl {
+          font-size: 16px;
+        }
+      }
+      span {
+        color: var(--grey2);
+        font-size: 18px;
+        @include lt-xl {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  background-color: #fbfeff;
+  height: 100%;
+}
+
+.top1 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0px;
+  flex-wrap: wrap;
+
+  @include lt-md {
+    flex-direction: column;
+  }
+
+  .nb-users {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    * {
+      margin: 0px 8px;
+    }
+  }
+
+  button {
+    border-radius: 60px;
+    width: 230px;
+  }
+
+  input {
+    border-radius: 60px;
+    width: 230px;
+  }
+}
+
+.btn {
+  border-radius: 60px;
+  width: 180px;
+}
+
+.show {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  text-align: center;
+  color: #535353;
+}
+
+#number {
+  height: 30px;
+  width: 62px;
+  margin: 5%;
+}
+
+.popup {
+  width: 200px;
+}
+
+.col-auto {
+  width: 45%;
+  margin-bottom: 5%;
+}
+
+#btn {
+  border-radius: 20px;
+  width: 40%;
+  margin-left: 5%;
+}
+
+td {
+  text-align: center;
+  min-width: fit-content;
+  p {
+    margin: 0px;
+    text-align: left;
+  }
+}
+
+.table-user-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 500px;
+  background-position: 50% 50%;
+  background-size: cover;
+  position: relative;
+  font-size: 12px;
+
+  .connected {
+    color: green;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
+
+  .disconnected {
+    color: gray;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
+}
+
+.birth {
+  min-width: 100px;
+}
+
+th {
+  text-align: center;
+  width: 20px;
+}
+
+.password {
+  position: relative;
+
+  .eye {
+    position: absolute;
+    top: 30%;
+    right: 20px;
+    cursor: pointer;
+  }
+}
+
+.form-input {
+  margin: 10px 0px;
+
+  button {
+    display: block;
+    margin: auto;
+  }
+}

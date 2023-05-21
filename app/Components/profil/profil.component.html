@@ -1,0 +1,404 @@
+<div class="profile">
+  <div class="header">
+    <div class="research">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search appointments, user, blog, etc" />
+    </div>
+    <div class="user">
+      <i class="fa-solid fa-bell"></i>
+      <img src="{{ GetUser().profilImage }}" class="user_img" />
+      <div class="userName">
+        <h4>{{ GetUser().firstName }} {{ GetUser().lastName }}</h4>
+        <span>Welcome</span>
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="['main', profileType]">
+    <div class="data_main">
+      <div class="profile-bg"></div>
+      <div class="user-img-section">
+        <div class="img-and-name">
+          <img src="{{ GetUser().profilImage }}" alt="user" class="user-img" />
+          <div class="userName">
+            <h4>{{ GetUser().firstName }} {{ GetUser().lastName }}</h4>
+            <span *ngIf="isMember">
+              {{ GetUser().score }} points
+              <div class="medal"></div>
+            </span>
+          </div>
+        </div>
+        <button class="edit" (click)="openPopupAdd()">
+          <i class="fa-solid fa-pen"></i>
+          Edit
+        </button>
+      </div>
+      <div class="info_and_engagements">
+        <div class="info paper">
+          <h4>Bio</h4>
+          <p>“ {{ GetUser().bio }} “</p>
+          <hr />
+          <table>
+            <tr>
+              <td>First Name</td>
+              <td>{{ GetUser().firstName }}</td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td>{{ GetUser().lastName }}</td>
+            </tr>
+            <tr>
+              <td>Age</td>
+              <td>{{ GetAge() }}</td>
+            </tr>
+            <tr>
+              <td>Sex</td>
+              <td>{{ GetUser().sex }}</td>
+            </tr>
+            <tr>
+              <td>Location</td>
+              <td>{{ GetUser().location }}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{{ GetUser().email }}</td>
+            </tr>
+            <tr *ngIf="!GetUser().anonymous">
+              <td>Phone</td>
+              <td>{{ GetUser().phoneNumber.number }}</td>
+            </tr>
+            <!-- <tr *ngIf="user.role !== 'Expert' && user.role !== 'Admin'">
+              <td>Manipulation</td>
+              <td>
+                <span class="manipulation">{{ manipulationLevel }}</span>
+              </td>
+            </tr> -->
+          </table>
+        </div>
+        <div class="engagements paper">
+          <h4>Engagements</h4>
+          <div class="chart">
+            <div *ngFor="let eng of engagements" class="day">
+              <div class="bar">
+                <div class="value" style.height="{{ eng.value }}%"></div>
+              </div>
+              <span>{{ eng.day }}</span>
+            </div>
+          </div>
+          <hr />
+          <h4>Tags</h4>
+          <div class="tags">
+            <div *ngFor="let tag of tags" class="tag">
+              {{ tag }}
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="historys paper">
+        <div class="header">
+          <h4>Podcasts And Lives</h4>
+          <span>view all</span>
+        </div>
+        <div class="body">
+          <div *ngFor="let history of historys" class="history">
+            <div
+              class="img"
+              [style.background-image]="'url(' + history.img + ')'"
+            >
+              <div class="icon-container">
+                <i
+                  *ngIf="history.type === 'podcast'"
+                  class="fa-solid fa-microphone-lines"
+                ></i>
+                <i
+                  *ngIf="history.type === 'live'"
+                  class="fa-solid fa-podcast"
+                ></i>
+              </div>
+            </div>
+            <div class="data">
+              <h5>{{ history.title }}</h5>
+              <p>{{ history.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="data_sub">
+      <div class="container-calendar paper">
+        <h4>Upcoming activities</h4>
+        <div class="calendar">
+          <ejs-calendar
+            id="calendar"
+            [cssClass]="cssClass"
+            [values]="date_values"
+            [isMultiSelection]="multiSelect"
+          >
+          </ejs-calendar>
+        </div>
+        <div class="events">
+          <img src="../../../assets/images/profile/calendar.png" alt="events" />
+          <h5>Today</h5>
+        </div>
+        <table>
+          <tr>
+            <td><span class="dot"></span></td>
+            <td><span class="event">Healing podcast for students</span></td>
+            <td><span class="time">10:00</span></td>
+          </tr>
+          <tr>
+            <td><span class="dot"></span></td>
+            <td><span class="event">Support group meeting</span></td>
+            <td><span class="time">21:00</span></td>
+          </tr>
+        </table>
+
+        <div class="today_event"></div>
+      </div>
+
+      <div class="feelings-container">
+        <h4 class="feeling_text">What is your Stress level today?</h4>
+
+        <div class="feelings">
+          <div routerLink="/under" class="feeling paper">
+            <img
+              src="../../../assets/images/profile/happy_smile.svg"
+              alt="reaction"
+            />
+            <span>Feeling Good</span>
+          </div>
+          <div routerLink="/under" class="feeling paper">
+            <img
+              src="../../../assets/images/profile/desap_smile.svg"
+              alt="reaction"
+            />
+            <span>Feeling Disappointed</span>
+          </div>
+          <div routerLink="/under" class="feeling paper">
+            <img
+              src="../../../assets/images/profile/sad_smile.svg"
+              alt="reaction"
+            />
+            <span>Feeling Bad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="popupAdd" class="popup">
+  <div [ngClass]="['paper', 'my_modal', profileType]">
+    <div class="profile-bg"></div>
+    <div class="body">
+      <div class="left_side">
+        <div
+          class="user-img"
+          [style.background-image]="'url(' + GetUser().profilImage + ')'"
+        >
+          <div class="upload_img" (click)="openUploadImg()">
+            <i class="fa-solid fa-camera"></i>
+            <input
+              type="file"
+              id="uploadImage"
+              (change)="UploadImage($event)"
+            />
+          </div>
+        </div>
+
+        <div class="profile-buttons">
+          <button class="" (click)="updateprofilee()">Edit Profile</button>
+          <button class="" (click)="changepasswordd()">Change Password</button>
+          <button class="" (click)="changeBio()">Change Bio</button>
+          <button class="delete" (click)="openPopupDel()">
+            Delete account
+          </button>
+        </div>
+      </div>
+      <div class="right_side">
+        <!-- CHANGER PROFILE PART -->
+        <h3 *ngIf="updateprofile">Edit Profile</h3>
+        <form *ngIf="updateprofile" class="row" [formGroup]="form">
+          <div class="col-lg-6 col-md-12 input-form">
+            <label class="form-label">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First Name"
+              formControlName="firstName"
+              [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+            />
+          </div>
+          <div class="col-lg-6 col-md-12 input-form">
+            <label class="form-label">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Last Name"
+              formControlName="lastName"
+              [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+            />
+          </div>
+          <div class="col-lg-6 col-md-12 input-form">
+            <label class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            />
+          </div>
+          <div class="col-lg-6 col-md-12 input-form">
+            <label class="form-label">Phone Number</label>
+            <ngx-intl-tel-input
+              [preferredCountries]="[CountryISO.Tunisia]"
+              [enableAutoCountrySelect]="true"
+              [enablePlaceholder]="true"
+              [searchCountryFlag]="true"
+              [searchCountryField]="[SearchCountryField.Name]"
+              [selectFirstCountry]="true"
+              [selectedCountryISO]="CountryISO.Tunisia"
+              [maxLength]="15"
+              [phoneValidation]="true"
+              name="phone"
+              formControlName="phoneNumber"
+              class="form-phone"
+              type="tel"
+              id="inputTel"
+            >
+            </ngx-intl-tel-input>
+          </div>
+          <div class="col-lg-6 col-md-12 input-form">
+            <label class="form-label">Birth Date</label>
+            <input
+              type="date"
+              class="form-control"
+              placeholder="Birth Date"
+              formControlName="birthDate"
+              [(ngModel)]="form.value.birthDate"
+              [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }"
+            />
+          </div>
+          <div class="col-lg-6 col-md-12 input-form">
+            <label class="form-label">Sex</label>
+            <select
+              aria-label="Sex"
+              formControlName="sex"
+              class="form-control form-select"
+              [ngClass]="{ 'is-invalid': submitted && f.sex.errors }"
+            >
+              <option value="Man">Man</option>
+              <option value="Woman">Woman</option>
+              <option value="Not Specified">Not Specified</option>
+            </select>
+          </div>
+          <div class="col-md-12 input-form">
+            <label class="form-label">Location</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Location"
+              formControlName="location"
+              [ngClass]="{ 'is-invalid': submitted && f.location.errors }"
+            />
+          </div>
+          <div class="buttons-group">
+            <button class="cancel" (click)="closePopup()">Close</button>
+            <button class="submit" (click)="onSubmit()">Save</button>
+          </div>
+        </form>
+        <!-- CHANGER PROFILE PART -->
+
+        <!-- CHANGER PASSWORD PART -->
+        <div *ngIf="changepassword">
+          <h3>Change Password</h3>
+          <form class="row" [formGroup]="formPassword">
+            <div class="col-lg-6 col-md-12 input-form">
+              <label class="form-label">Old Password</label>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Old Password"
+                formControlName="old_password"
+                [ngClass]="{ 'is-invalid': submitted && f.old_password.errors }"
+              />
+            </div>
+
+            <div class="col-lg-6 col-md-12 input-form">
+              <label class="form-label">New Password</label>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="New Password"
+                formControlName="new_password"
+                [ngClass]="{ 'is-invalid': submitted && f.new_password.errors }"
+              />
+            </div>
+
+            <div class="col-lg-6 col-md-12 input-form">
+              <label class="form-label">Confirm New Password</label>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Confirm New Password"
+                formControlName="confirm_new_password"
+                [ngClass]="{
+                  'is-invalid': submitted && f.confirm_new_password.errors
+                }"
+              />
+            </div>
+
+            <div class="buttons-group">
+              <button class="cancel" (click)="closePopup()">Cancel</button>
+              <button class="submit" (click)="changePassword()">Save</button>
+            </div>
+          </form>
+        </div>
+        <!-- CHANGER PASSWORD PART -->
+
+        <!-- CHANGER BIO PART -->
+        <h3 *ngIf="changebio">Edit Bio</h3>
+        <form *ngIf="changebio" class="row" [formGroup]="formbio">
+          <div class="col-lg-12 col-md-12 input-form">
+            <textarea
+              type="text"
+              rows="5"
+              class="form-control"
+              placeholder="Bio"
+              formControlName="bio"
+              [ngClass]="{ 'is-invalid': submitted && h.bio.errors }"
+            ></textarea>
+          </div>
+          <div class="buttons-group">
+            <button class="cancel" (click)="closePopup()">Cancel</button>
+            <button class="submit" (click)="ChangeBioBD()">Save</button>
+          </div>
+        </form>
+        <!-- CHANGER BIO PART -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="popupDel" class="popup">
+  <div [ngClass]="['paper', 'del_modal', profileType]">
+    <i class="fa-solid fa-xmark close" (click)="closePopup()"></i>
+    <h4>Delete Account</h4>
+    <p>Are you sure you want to delete your account?</p>
+    <div class="warning">
+      <div class="warning-border"></div>
+      <div class="warning-content">
+        <h4><i class="fa-solid fa-triangle-exclamation"></i> Warning</h4>
+        <p>
+          By confirming this, all your data on this platform will be erased and
+          lost forever!!!
+        </p>
+      </div>
+    </div>
+    <div class="buttons-group">
+      <button class="nodelete" (click)="closePopup()">Cancel</button>
+      <button class="delete" (click)="closePopup()">Confirm</button>
+    </div>
+  </div>
+</div>

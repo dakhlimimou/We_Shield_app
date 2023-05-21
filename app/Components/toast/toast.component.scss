@@ -1,0 +1,110 @@
+@use "../../../assets/scss/media-queries.scss" as *;
+@keyframes showToast {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  10% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  90% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes ShowAnim {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes HideAnim {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.toast {
+  width: 350px;
+  padding: 10px 20px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 99999;
+
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  //   animation-name: showToast;
+  //   animation-fill-mode: forwards;
+  //   animation-duration: 4s;
+
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 5px -1px,
+    rgb(0 0 0 / 14%) 0px 6px 10px 0px, rgb(0 0 0 / 12%) 0px 1px 18px 0px;
+
+  @include lt-md {
+    width: 90%;
+    right: 5%;
+  }
+}
+
+.show {
+  animation-name: ShowAnim;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+
+.hide {
+  animation-name: HideAnim;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+
+.success {
+  background-color: rgb(46, 125, 50);
+}
+
+.error {
+  background-color: #d32f2f;
+}
+
+.info {
+  background-color: #0388d0;
+}
+
+.warning {
+  background-color: #ec6d02;
+}
+
+.close {
+  cursor: pointer;
+}

@@ -1,0 +1,153 @@
+<div class="tests-page">
+  <div class="header">
+    <div class="research">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search appointments, user, blog, etc" />
+    </div>
+    <div class="user">
+      <i class="fa-solid fa-bell"></i>
+      <img src="{{ user.profilImage }}" class="user_img" />
+      <div class="userName">
+        <h4>{{ user.firstName }} {{ user.lastName }}</h4>
+        <span>Welcome</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="testStep === -1">
+    <div class="start-test test">
+      <div class="description">
+        <h2>Psychology Test</h2>
+        <p>Take the test to get the acces to your profile.</p>
+        <p>Explore your personality.</p>
+        <p>Understand the reason behind your difference.</p>
+      </div>
+      <img
+        class="guys-question"
+        src="../../../assets/images/test/ppl.png"
+        alt="psycho test"
+      />
+    </div>
+    <div class="start-test-details">
+      <div class="details">
+        <img
+          src="../../../assets/images/test/sand_clock.svg"
+          alt="test details"
+        />
+        <p>It takes very little of your time, and its so easy.</p>
+      </div>
+      <div class="details">
+        <img
+          src="../../../assets/images/test/messages.svg"
+          alt="test details"
+        />
+        <p>No answer is right or wrong but please be honest</p>
+      </div>
+      <div class="details">
+        <img src="../../../assets/images/test/balence.svg" alt="test details" />
+        <p>Try not to leave a “neutral” response.</p>
+      </div>
+    </div>
+    <div class="buttons-group-start-test">
+      <button class="cancel">Cancel</button>
+      <button class="submit" (click)="startTest()">Start Test</button>
+    </div>
+  </div>
+
+  <div *ngIf="testStep > -1 && testStep < tests.length">
+    <div *ngFor="let test of tests; let i = index">
+      <div
+        *ngIf="testStep == i"
+        [ngClass]="['test-itself', 'test', test.testType]"
+      >
+        <h2>{{ test.question }}</h2>
+        <!-- type cards -->
+        <div *ngIf="test.testType === 'cards'" class="answers">
+          <div
+            *ngFor="let answer of test.answers"
+            class="answer"
+            [ngClass]="{ selected: myAnswers[i]._id == answer._id }"
+            (click)="selectAnswer(i, answer)"
+          >
+            {{ answer.value }}
+          </div>
+        </div>
+        <!-- type cards -->
+        <!-- type phrase -->
+        <div *ngIf="test.testType === 'phrase'" class="answers">
+          <div
+            *ngFor="let answer of test.answers"
+            class="answer"
+            [ngClass]="{ selected: myAnswers[i]._id == answer._id }"
+            (click)="selectAnswer(i, answer)"
+          >
+            <span class="elipse"></span> {{ answer.value }}
+          </div>
+        </div>
+        <!-- type phrase -->
+        <!-- type images -->
+        <div *ngIf="test.testType === 'images'" class="answers">
+          <div
+            *ngFor="let answer of test.answers"
+            class="answer"
+            [ngClass]="{ selected: myAnswers[i]._id == answer._id }"
+            (click)="selectAnswer(i, answer)"
+            [style.background-image]="'url(' + answer.image + ')'"
+          >
+            <span>{{ answer.value }}</span>
+          </div>
+        </div>
+        <!-- type images -->
+      </div>
+    </div>
+    <div class="steps">
+      <div
+        *ngFor="let test of tests; let i = index"
+        [ngClass]="{ active: i <= testStep }"
+        class="step"
+      ></div>
+    </div>
+    <div class="steps-text">{{ testStep + 1 }} of {{ tests.length }}</div>
+    <div class="questions-navigations">
+      <button class="previus" (click)="prevQuestion()">Previus</button>
+      <button
+        *ngIf="testStep < tests.length - 1"
+        class="skip"
+        (click)="nextQuestion()"
+      >
+        Skip
+      </button>
+      <button
+        *ngIf="testStep < tests.length - 1"
+        class="next"
+        (click)="submitQuestion()"
+      >
+        Next
+      </button>
+      <button
+        *ngIf="testStep == tests.length - 1"
+        class="next"
+        (click)="submitTest()"
+      >
+        Submit <span> My Test</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="submitted" class="popup">
+  <div [ngClass]="['paper', 'my_modal']">
+    <i class="fa-solid fa-xmark close" (click)="closePopup()"></i>
+    <h4>Psychology Test Submission</h4>
+    <p>
+      Thank you {{ user.firstName }} {{ user.lastName }} for taking the
+      Psycology Test. Your responses have been recorded successfully and your
+      results will be displayed on your profile.
+    </p>
+
+    <div class="buttons">
+      <button (click)="printTestResult()">Print Your Test</button>
+      <button (click)="gotoprofile()">Back To Profile</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1111 @@
+@use "../../../assets/scss/media-queries.scss" as *;
+// ############################### ALL SECTIONS ##################################
+
+h1 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 82px;
+  color: var(--title);
+
+  @include lt-lg {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 50px;
+  }
+  @include lt-md {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 40px;
+  }
+  @include lt-sm {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
+  }
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 22px;
+  color: #716a6a;
+}
+
+p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 40px;
+  color: #828282;
+  text-align: justify;
+
+  @include lt-lg {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  @include lt-sm {
+    font-size: 16px;
+  }
+}
+
+.scroll-to-this {
+  position: absolute;
+  transform: translateY(-110px);
+
+  @include lg {
+    transform: translateY(-80px);
+  }
+
+  @include lt-lg {
+    transform: translateY(0px);
+  }
+}
+
+.btn {
+  background: var(--main);
+  border-radius: 40px;
+  color: #ffffff;
+}
+
+.outlined {
+  background-color: #ffffff;
+  color: var(--title);
+  &:hover {
+    background-color: #e8e8e8;
+    color: var(--title);
+  }
+}
+
+// ############################### SECTIONS 1 ##################################
+.section1 {
+  width: 100%;
+  background-repeat: no-repeat;
+  margin-top: 110px;
+  padding: 50px 50px 0px 50px;
+
+  background-image: url(../../../assets/Home/FrameCopieResp.png);
+  background-repeat: no-repeat;
+  background-size: 50%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  @include lg {
+    margin-top: 80px;
+  }
+  @include lt-lg {
+    margin-top: 0px;
+    padding: 30px 30px 0px 30px;
+    align-items: center;
+  }
+
+  @include lt-md {
+    flex-direction: column;
+    background-size: 100%;
+  }
+
+  @include lt-sm {
+    padding: 30px 20px 0px 20px;
+  }
+
+  .introduction {
+    width: 55%;
+    margin-top: 50px;
+
+    @include lt-md {
+      width: 100%;
+    }
+
+    .typewrite {
+      color: var(--main);
+    }
+
+    p {
+      width: 80%;
+
+      @include lt-lg {
+        width: 95%;
+      }
+      @include lt-md {
+        width: 100%;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      button {
+        display: block;
+        width: 40%;
+      }
+    }
+
+    .stats {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      padding: 30px 0px 0px 0px;
+
+      .stat {
+        width: 30%;
+
+        @include lt-lg {
+          width: 32%;
+        }
+        @include lt-md {
+          width: 33%;
+        }
+
+        .value {
+          text-align: center;
+          color: var(--main);
+          font-weight: 600;
+          font-size: 40px;
+          @include lt-lg {
+            font-size: 30px;
+          }
+          @include lt-md {
+            font-size: 20px;
+          }
+        }
+
+        .value-attibute {
+          text-align: center;
+          width: 100%;
+          @include lt-md {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .swipped-carousel {
+    width: 45%;
+    background-image: url(../../../assets/Home/Group6.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 0% 0%;
+
+    @include lt-md {
+      width: 100%;
+    }
+
+    .swipped-img-container {
+      width: 100%;
+      padding: 60px 30px 0px 30px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      .swipped-img {
+        width: 80%;
+      }
+    }
+  }
+}
+
+// ############################### SECTIONS 2 ##################################
+
+.section2 {
+  background-color: #fbfeff;
+  width: 100%;
+  padding: 30px 50px 0px 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include lt-md {
+    flex-direction: column;
+    padding: 50px 40px 0px 40px;
+  }
+
+  @include lt-sm {
+    padding: 30px 20px 0px 20px;
+  }
+
+  .our-services {
+    width: 45%;
+    text-align: center;
+
+    @include lt-md {
+      width: 100%;
+    }
+
+    .blue_cicrle {
+      background-color: #fbfeff;
+      border: 3px solid var(--main);
+      border-radius: 500px;
+      width: 100%;
+      aspect-ratio: 1/1;
+      transform: translateX(-10%);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include lt-md {
+        transform: translateX(0px);
+      }
+      @include lt-sm {
+        border: none;
+        border-radius: 0px;
+      }
+
+      .blank {
+        background-color: white;
+        border-radius: 500px;
+        width: 90%;
+        height: 90%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        @include lt-sm {
+          background-color: transparent;
+          border-radius: 0px;
+          width: 100%;
+        }
+
+        h2 {
+          font-weight: 700;
+          font-size: 37px;
+          color: var(--main);
+          text-align: center;
+          @include lt-xl {
+            font-size: 35px;
+          }
+          @include lt-lg {
+            font-size: 30px;
+          }
+          @include lt-md {
+            font-size: 25px;
+          }
+          @include lt-sm {
+            width: 100%;
+            text-align: left;
+          }
+        }
+
+        p {
+          width: 70%;
+          font-size: 25px;
+          @include lt-xl {
+            font-size: 18px;
+            line-height: 25px;
+          }
+          @include lt-md {
+            font-size: 16px;
+            line-height: 25px;
+          }
+          @include lt-sm {
+            width: 100%;
+            margin-bottom: 0px;
+          }
+        }
+
+        img {
+          width: 60%;
+          @include lt-xl {
+            width: 50%;
+          }
+          @include lt-sm {
+            width: 70%;
+          }
+        }
+      }
+    }
+  }
+
+  .services {
+    width: 55%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include lt-md {
+      width: 100%;
+      padding: 30px 0px;
+    }
+
+    .box {
+      width: 48%;
+      margin: 1%;
+      padding: 15px 10px;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.1);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      @include lt-lg {
+        padding: 10px;
+      }
+
+      @include lt-sm {
+        width: 100%;
+        margin: 2% 0px;
+      }
+
+      img {
+        height: 50px;
+        @include lt-lg {
+          height: 40px;
+        }
+      }
+
+      h3 {
+        text-align: center;
+        font-size: 20px;
+        margin: 5px 0px 0px 0px;
+        @include lt-lg {
+          font-size: 18px;
+        }
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 20px;
+        color: #716a6a;
+        text-align: center;
+        @include lt-lg {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+    }
+
+    .solo {
+      margin: 1% 20%;
+      @include lt-lg {
+        margin: 1%;
+      }
+      @include lt-sm {
+        margin: 2% 0px;
+      }
+    }
+  }
+}
+// ############################### SECTIONS 3 ##################################
+
+.section3 {
+  padding: 50px 50px 0px 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include lt-lg {
+    padding: 20px 20px 0px 20px;
+  }
+
+  @include lt-md {
+    flex-direction: column-reverse;
+    padding: 20px 20px 0px 20px;
+  }
+
+  .description-xl-lg-md {
+    display: block;
+    @include lt-md {
+      display: none;
+    }
+  }
+
+  .description-sm-xs {
+    display: none;
+    @include lt-md {
+      display: block;
+    }
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 40px;
+    color: var(--main);
+    @include lt-lg {
+      font-size: 35px;
+    }
+  }
+
+  .buttons-side {
+    width: 55%;
+
+    @include lt-md {
+      width: 100%;
+    }
+
+    .buttons {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      @include lt-sm {
+        justify-content: center;
+      }
+    }
+
+    .btn {
+      display: block;
+      width: 30%;
+      margin: 20px 0px 0px 0px;
+
+      @include lt-md {
+        font-size: 14px;
+      }
+      @include lt-sm {
+        min-width: 48%;
+        width: fit-content;
+        margin: 20px auto 0px auto;
+      }
+    }
+  }
+
+  .image-side {
+    width: 45%;
+
+    @include lt-md {
+      width: 100%;
+    }
+
+    .right-img {
+      width: 100%;
+    }
+  }
+}
+
+// ############################### SECTIONS 4 ##################################
+
+.section4 {
+  width: 100%;
+
+  .header {
+    width: 100%;
+    padding: 50px 50px 0px 50px;
+
+    @include lt-sm {
+      padding: 30px 20px 0px 20px;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 50px;
+      text-align: center;
+
+      @include lt-md {
+        font-size: 40px;
+      }
+
+      @include lt-sm {
+        font-size: 30px;
+      }
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 20px;
+      color: #716a6a;
+      text-align: center;
+
+      @include lt-sm {
+        font-size: 16px;
+        text-align: justify;
+      }
+    }
+  }
+
+  .body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include lt-md {
+      flex-direction: column;
+    }
+
+    @include lt-sm {
+      padding: 0px 20px;
+    }
+
+    .buttons {
+      width: 35%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      @include lt-md {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: block;
+        width: 60%;
+        margin: 20px 0px;
+
+        @include lt-md {
+          width: fit-content;
+          margin: 10px;
+        }
+      }
+
+      .act-btn {
+        background: var(--main);
+        border-radius: 40px;
+        color: #ffffff;
+      }
+    }
+
+    .frames {
+      width: 65%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+
+      @include lt-md {
+        width: 100%;
+      }
+
+      .frame {
+        overflow: hidden;
+        width: 48%;
+        max-width: 350px;
+        height: 200px;
+        margin: 40px auto 0px auto;
+        background: #fbfeff;
+        box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.1);
+        border-radius: 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include lt-sm {
+          width: 100%;
+          margin: 20px auto 0px auto;
+        }
+
+        img {
+          height: 100%;
+        }
+
+        .content {
+          width: 60%;
+
+          h3 {
+            font-weight: 700;
+            font-size: 25px;
+            color: #4f4f4f;
+            text-align: center;
+
+            @include lt-sm {
+              font-size: 20px;
+            }
+          }
+
+          p {
+            font-weight: 400;
+            font-size: 20px;
+            color: #716a6a;
+            text-align: center;
+            @include lt-sm {
+              font-size: 16px;
+            }
+          }
+
+          .stats {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            color: #716a6a;
+          }
+
+          .btn {
+            display: block;
+            width: 60%;
+            height: 15%;
+            margin: 20px auto 0px auto;
+          }
+        }
+      }
+      .solo {
+        margin: 40px 25% 0px 25%;
+        @include lt-md {
+          margin: 20px auto 0px auto;
+        }
+      }
+    }
+  }
+}
+
+// ################################## BIRDS ####################################
+
+.birds-in-the-sky {
+  width: 100%;
+  margin: 20px 0px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .bird1 {
+    transform: translateY(20px);
+  }
+
+  .bird2 {
+    transform: translateY(70px);
+  }
+}
+
+// ############################### SECTIONS 5 ##################################
+
+.section5 {
+  background-color: #fbfeff;
+  width: 100%;
+  padding: 50px 50px 50px 50px;
+
+  @include lt-lg {
+    padding: 20px 20px 0px 20px;
+  }
+
+  @include lt-md {
+    padding: 20px 20px 0px 20px;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 50px;
+    text-align: center;
+    color: var(--main);
+
+    @include lt-lg {
+      font-size: 35px;
+    }
+
+    @include lt-sm {
+      font-size: 25px;
+    }
+  }
+
+  .latest-all {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 0px 30px 0px;
+
+    h2 {
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--title);
+      @include lt-lg {
+        font-size: 30px;
+      }
+      @include lt-md {
+        font-size: 25px;
+      }
+      @include lt-sm {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .skeleton_blogs {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .blog {
+      width: 23%;
+      position: relative;
+      margin: 30px 1%;
+
+      @include lt-xl {
+        width: 30%;
+        margin: 30px 1.5%;
+      }
+
+      @include lt-md {
+        width: 46%;
+        margin: 30px 2%;
+      }
+      @include lt-sm {
+        width: 90%;
+        margin: 20px 0px;
+      }
+    }
+  }
+
+  .blogs {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .blog {
+      width: 23%;
+      position: relative;
+      margin: 30px 1%;
+
+      @include lt-xl {
+        width: 30%;
+        margin: 30px 1.5%;
+      }
+
+      @include lt-md {
+        width: 46%;
+        margin: 30px 2%;
+      }
+      @include lt-sm {
+        width: 90%;
+        margin: 20px 0px;
+      }
+
+      .delete-icon {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: red;
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 23/15;
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      .infos {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+
+        .type {
+          font-weight: 500;
+          font-size: 16px;
+          color: #f2994a;
+
+          @include lt-lg {
+            font-size: 15px;
+          }
+          @include lt-sm {
+            font-size: 14px;
+          }
+        }
+        .time {
+          font-weight: 400;
+          font-size: 16px;
+          color: #121212;
+
+          @include lt-lg {
+            font-size: 15px;
+          }
+          @include lt-sm {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .title {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        color: #121212;
+        text-align: left;
+        padding: 5px;
+
+        @include lt-lg {
+          font-size: 18px;
+        }
+        @include lt-sm {
+          font-size: 16px;
+          line-height: 25px;
+        }
+      }
+    }
+  }
+}
+
+// ############################### SECTIONS 6 ##################################
+
+.section6 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include lt-md {
+    justify-content: center;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+  }
+
+  .team {
+    width: 40%;
+
+    @include lt-xl {
+      width: 50%;
+    }
+    @include lt-lg {
+      width: 40%;
+    }
+    @include lt-md {
+      width: 100%;
+      padding: 0px 20px;
+    }
+  }
+
+  .about {
+    width: 60%;
+    padding: 10px 30px;
+
+    @include lt-xl {
+      width: 50%;
+    }
+
+    @include lt-lg {
+      width: 60%;
+    }
+
+    @include lt-md {
+      width: 100%;
+      padding: 30px 30px 0px 30px;
+    }
+
+    @include lt-sm {
+      padding: 20px 20px 0px 20px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      img {
+        margin: 0px 30px 0px 50px;
+        @include lt-md {
+          margin: 0px 30px 0px 0px;
+        }
+        @include lt-sm {
+          width: 40%;
+        }
+      }
+      h1 {
+        font-size: 40px;
+        color: var(--main);
+        @include lt-lg {
+          font-size: 35px;
+        }
+        @include lt-md {
+          font-size: 30px;
+        }
+        @include lt-sm {
+          font-size: 25px;
+        }
+      }
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 40px;
+      width: 100%;
+      color: #716a6a;
+      text-align: justify;
+
+      @include lt-lg {
+        font-size: 18px;
+        line-height: 30px;
+      }
+      @include lt-sm {
+        font-size: 16px;
+        line-height: 30px;
+      }
+    }
+
+    .btn {
+      padding: 10px 60px;
+      font-size: 20px;
+      @include lt-lg {
+        padding: 8px 50px;
+        font-size: 18px;
+      }
+
+      @include lt-md {
+        padding: 8px 60px;
+        font-size: 18px;
+        display: block;
+        margin: 15px auto;
+      }
+
+      @include lt-sm {
+        padding: 6px 50px;
+        font-size: 16px;
+        display: block;
+        margin: 15px auto;
+      }
+    }
+  }
+}
+
+// ############################### SECTIONS 7 ##################################
+
+.section7 {
+  width: 100%;
+  background: #fbfeff;
+  padding: 50px 0px;
+
+  .header {
+    width: 100%;
+    padding: 0px 50px 0px 50px;
+    margin: 0px;
+
+    @include lt-sm {
+      padding: 30px 20px 0px 20px;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 50px;
+      text-align: center;
+
+      @include lt-md {
+        font-size: 40px;
+      }
+
+      @include lt-sm {
+        font-size: 30px;
+      }
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 20px;
+      color: #716a6a;
+      text-align: center;
+
+      @include lt-sm {
+        font-size: 16px;
+        text-align: justify;
+      }
+    }
+  }
+
+  .body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include lt-md {
+      flex-direction: column;
+    }
+
+    @include lt-sm {
+      padding: 0px 20px;
+    }
+
+    .frames {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      @include lt-md {
+        width: 100%;
+      }
+
+      .frame {
+        overflow: hidden;
+        width: 48%;
+        max-width: 500px;
+        height: 230px;
+        margin: 40px 20px 0px 20px;
+        // background: #fbfeff;
+        background: #fff;
+        box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.1);
+        border-radius: 30px;
+        padding: 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include lt-sm {
+          width: 100%;
+          margin: 20px auto 0px auto;
+          padding: 0px;
+        }
+
+        img {
+          height: 90%;
+
+          @include lt-sm {
+            height: 80%;
+          }
+        }
+
+        .content {
+          width: auto;
+          flex-grow: 1;
+          h3 {
+            font-weight: 700;
+            font-size: 26px;
+            color: #4f4f4f;
+            text-align: center;
+
+            @include lt-lg {
+              font-size: 24px;
+            }
+
+            @include lt-md {
+              font-size: 22px;
+            }
+
+            @include lt-sm {
+              font-size: 20px;
+            }
+          }
+
+          p {
+            font-weight: 400;
+            font-size: 20px;
+            color: #716a6a;
+            text-align: center;
+
+            @include lt-lg {
+              font-size: 18px;
+            }
+
+            @include lt-sm {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

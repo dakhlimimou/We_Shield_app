@@ -1,0 +1,123 @@
+<div class="login">
+  <div class="preview">
+    <a routerLink="/">
+      <img class="logo" src="../../../assets/images/logo/logo2.svg" />
+    </a>
+    <div class="container-girl">
+      <h1 class="title">Find Your Safe</h1>
+      <h1 class="title">Place Today</h1>
+      <img class="girl_img" src="../../../assets/images/login/girl.png" />
+    </div>
+  </div>
+  <div class="form">
+    <div class="mul_lang">English (IN)</div>
+    <div class="head">
+      <h1>Sign in Account</h1>
+      <p>Continue to explore</p>
+    </div>
+    <!-- FORM GROUP -->
+    <form class="body" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <img class="logo" src="../../../assets/images/logo/logo1.svg" />
+
+      <!-- EMAIL INPUT -->
+      <div class="input-group has-validation" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+        <div class="form-floating">
+          <input
+            type="email"
+            placeholder="Username"
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+          />
+          <label>Email</label>
+        </div>
+      </div>
+      <span *ngIf="submitted && f.email.errors" class="error-msg"
+        >Email is required</span
+      >
+      <!-- EMAIL INPUT -->
+
+      <!-- PASSWORD INPUT -->
+      <div
+        class="input-group has-validation"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+      >
+        <div class="form-floating">
+          <input
+            [type]="showPass ? 'text' : 'password'"
+            placeholder="Password"
+            formControlName="password"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+            placeholder="Username"
+          />
+          <label>Password</label>
+        </div>
+        <span class="input-group-text">
+          <i
+            *ngIf="!showPass"
+            (click)="HandlePassView()"
+            class="fa-sharp fa-solid fa-eye"
+          ></i>
+          <i
+            *ngIf="showPass"
+            (click)="HandlePassView()"
+            class="fa-sharp fa-solid fa-eye-slash"
+          ></i>
+        </span>
+      </div>
+      <span *ngIf="submitted && f.password.errors?.required" class="error-msg"
+        >Please enter your password</span
+      >
+      <span *ngIf="submitted && f.password.errors?.minlength" class="error-msg"
+        >Password must be at least 6 characters</span
+      >
+      <!-- PASSWORD INPUT -->
+
+      <!-- REMEMBER & FORGET -->
+      <div class="remember_forget">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Remember me
+          </label>
+        </div>
+        <a routerLink="/forgotPassword">Forgot Password?</a>
+      </div>
+      <!-- REMEMBER & FORGET -->
+
+      <!-- BUTTONS -->
+      <div class="buttons_group">
+        <button class="signin">Sign In</button>
+        <button class="with_google">
+          <img
+            src="../../../assets/images/login/google_icon.png"
+            alt="google signin"
+          />
+          Sign In With Google
+        </button>
+      </div>
+      <p class="dont_have_account">
+        Don't have an account ? <a routerLink="/register">Sign Up</a>
+      </p>
+      <!-- BUTTONS -->
+    </form>
+    <!-- FORM GROUP -->
+    <div class="footer">
+      <img
+        class="google_play"
+        src="../../../assets/images/login/Google_Play_Store.png"
+        alt="google play"
+      />
+      <img
+        src="../../../assets/images/login/App_Store (1).png"
+        alt="app store"
+      />
+    </div>
+  </div>
+</div>

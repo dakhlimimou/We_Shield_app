@@ -1,0 +1,37 @@
+<div class="result">
+  <div class="header">
+    <div class="research">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search appointments, user, blog, etc" />
+    </div>
+    <div class="user">
+      <i class="fa-solid fa-bell"></i>
+      <img src="{{ user.profilImage }}" class="user_img" />
+      <div class="userName">
+        <h4>{{ user.firstName }} {{ user.lastName }}</h4>
+        <span>Welcome</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="button_container">
+    <button class="download_pdf" (click)="printPage()">Download As Pdf</button>
+  </div>
+
+  <div class="tests">
+    <div *ngFor="let test of tests; let i = index" class="test">
+      <h1 class="question_number">Question {{ i + 1 }}</h1>
+      <h1 class="question">
+        {{ test.question }}
+      </h1>
+
+      <h2
+        *ngFor="let answer of test.answers"
+        class="answer"
+        [ngClass]="{ selected: myAnswers[i]._id == answer._id }"
+      >
+        <span class="elipse"></span>{{ answer.value }}
+      </h2>
+    </div>
+  </div>
+</div>
